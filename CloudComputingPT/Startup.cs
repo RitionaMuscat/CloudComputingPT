@@ -27,12 +27,21 @@ namespace CloudComputingPT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //310025673018-5pip0bf5cimb6q8r71bgdaloasrqi4bn.apps.googleusercontent.com
+            //B-ACf9kCusUP00nkk-cA2eRG
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "310025673018-5pip0bf5cimb6q8r71bgdaloasrqi4bn.apps.googleusercontent.com";
+                options.ClientSecret = "B-ACf9kCusUP00nkk-cA2eRG";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,11 +54,10 @@ namespace CloudComputingPT
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -60,6 +68,9 @@ namespace CloudComputingPT
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

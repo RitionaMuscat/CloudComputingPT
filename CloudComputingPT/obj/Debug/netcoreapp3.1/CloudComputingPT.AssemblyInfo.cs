@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-CloudComputingPT-1298A15A-F5D4-4ADD-AA17-DAA7E585CAE0")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-CloudComputingPT-DA54137B-1FC3-4493-9DF1-5A4E8A7EBC00")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("CloudComputingPT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
