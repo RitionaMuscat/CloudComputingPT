@@ -32,8 +32,12 @@ namespace CloudComputingPT
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+     .AddEntityFrameworkStores<ApplicationDbContext>()
+         .AddDefaultUI().AddDefaultTokenProviders();
             services.AddControllersWithViews();
             services.AddRazorPages();
 

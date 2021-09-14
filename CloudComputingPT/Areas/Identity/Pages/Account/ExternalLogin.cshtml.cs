@@ -23,17 +23,22 @@ namespace CloudComputingPT.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public ExternalLoginModel(
             SignInManager<IdentityUser> signInManager,
             UserManager<IdentityUser> userManager,
             ILogger<ExternalLoginModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender
+            ,
+            RoleManager<IdentityRole> roleManager
+            )
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
         }
 
         [BindProperty]
@@ -51,6 +56,8 @@ namespace CloudComputingPT.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+
+            public string Name { get; set; }
         }
 
         public IActionResult OnGetAsync()
@@ -62,6 +69,7 @@ namespace CloudComputingPT.Areas.Identity.Pages.Account
         {
             // Request a redirect to the external login provider.
             var redirectUrl = Url.Page("./ExternalLogin", pageHandler: "Callback", values: new { returnUrl });
+            ViewData["roles"] = _roleManager.Roles.ToList();
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
             return new ChallengeResult(provider, properties);
         }
@@ -97,6 +105,7 @@ namespace CloudComputingPT.Areas.Identity.Pages.Account
                 // If the user does not have an account, then ask the user to create an account.
                 ReturnUrl = returnUrl;
                 ProviderDisplayName = info.ProviderDisplayName;
+                ViewData["roles"] = _roleManager.Roles.ToList();
                 if (info.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
                 {
                     Input = new InputModel
@@ -122,8 +131,16 @@ namespace CloudComputingPT.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var role = _roleManager.FindByIdAsync(Input.Name).Result;
+        
 
                 var result = await _userManager.CreateAsync(user);
+                if (!await _userManager.IsInRoleAsync(user, role.Name))
+                {
+
+                    var userResult = await _userManager.AddToRoleAsync(user, role.Name);
+                }
+
                 if (result.Succeeded)
                 {
                     result = await _userManager.AddLoginAsync(user, info);
