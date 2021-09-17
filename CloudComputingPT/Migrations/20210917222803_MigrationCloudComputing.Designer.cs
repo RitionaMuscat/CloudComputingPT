@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CloudComputingPT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210915174236_MigrationCloudComputing")]
+    [Migration("20210917222803_MigrationCloudComputing")]
     partial class MigrationCloudComputing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,10 +28,19 @@ namespace CloudComputingPT.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
 
+                    b.Property<bool>("business")
+                        .HasColumnType("bit");
+
                     b.Property<string>("destinationAddress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("economy")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("isBookingConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("luxury")
                         .HasColumnType("bit");
 
                     b.Property<Guid>("passengerId")
@@ -43,21 +52,6 @@ namespace CloudComputingPT.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("bookingDetails");
-                });
-
-            modelBuilder.Entity("CloudComputingPT.Models.Categories", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
-
-                    b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("categories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

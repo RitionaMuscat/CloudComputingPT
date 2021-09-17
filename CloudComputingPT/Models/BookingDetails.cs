@@ -15,13 +15,16 @@ namespace CloudComputingPT.Models
         [ForeignKey("AspNetUsers")]
         public Guid passengerId { get; set; }
 
-        [ForeignKey("Categories")]
+      
         public string residingAdress { get; set; }
 
         public string destinationAddress { get; set; }
 
         public bool isBookingConfirmed { get; set; }
 
+        public bool luxury { get; set; }
+        public bool economy { get; set; }
+        public bool business { get; set; }
 
 
     }

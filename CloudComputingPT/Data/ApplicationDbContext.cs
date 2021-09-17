@@ -14,7 +14,7 @@ namespace CloudComputingPT.Data
         {
         }
 
-        public DbSet<Categories> categories { get; set; }
+        //public DbSet<Categories> categories { get; set; }
         public DbSet<BookingDetails> bookingDetails { get; set; }
 
 
@@ -22,7 +22,7 @@ namespace CloudComputingPT.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Categories>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
+            //modelBuilder.Entity<Categories>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             modelBuilder.Entity<BookingDetails>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
 
         }

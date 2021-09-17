@@ -1,7 +1,5 @@
 ﻿@model CloudComputingPT.Models.BookingDetails
 
-
-
 <!DOCTYPE html>
 
 <html>
@@ -17,11 +15,6 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                <label asp-for="passengerId" class="control-label"></label>
-                <input asp-for="passengerId" class="form-control" />
-                <span asp-validation-for="passengerId" class="text-danger"></span>
-            </div>*@
             <div class="form-group">
                 <label asp-for="residingAdress" class="control-label"></label>
                 <input asp-for="residingAdress" class="form-control" />
@@ -37,6 +30,22 @@
                     <input class="form-check-input" asp-for="isBookingConfirmed" /> @Html.DisplayNameFor(model => model.isBookingConfirmed)
                 </label>
             </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="luxury" /> @Html.DisplayNameFor(model => model.luxury)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="economy" /> @Html.DisplayNameFor(model => model.economy)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="business" /> @Html.DisplayNameFor(model => model.business)
+                </label>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

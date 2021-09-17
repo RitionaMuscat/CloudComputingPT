@@ -15,6 +15,11 @@ namespace CloudComputingPT.Controllers
     {
         private ApplicationDbContext _applicationDBContext;
         private readonly UserManager<IdentityUser> _userManager;
+
+        public class InputModel
+        {
+             public string Name { get; set; }
+        }
         public PassengerController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager)
         {
             _applicationDBContext = applicationDBContext;
@@ -26,15 +31,41 @@ namespace CloudComputingPT.Controllers
             BookingDetails Det = new BookingDetails();
 
             var PassengerBookings = (from a in _applicationDBContext.bookingDetails
-                                    select a).ToList();
+                                    select new
+                                    {
+                                    a.destinationAddress,
+                                    a.isBookingConfirmed,
+                                    a.residingAdress,
+                                    a.passengerId,
+                                    a.luxury,
+                                    a.economy,
+                                    a.business
+                                    
+                    
+                    } ).ToList();
+
+
 
             foreach (var item in PassengerBookings)
             {
-                Det.Id = item.Id;
+
+
                 Det.passengerId = item.passengerId;
                 Det.residingAdress = item.residingAdress;
                 Det.isBookingConfirmed = item.isBookingConfirmed;
+                Det.isBookingConfirmed.ToString();
                 Det.destinationAddress = item.destinationAddress;
+             if (item.luxury)
+                Det.luxury = item.luxury;
+             else if (item.business)
+                Det.business = item.business;
+             else
+                Det.economy = item.economy;
+              
+
+
+
+
             }
            
             if (Det.Id != null)
@@ -52,13 +83,16 @@ namespace CloudComputingPT.Controllers
         // GET: PassengerController/Create
         public ActionResult Create()
         {
+            //ViewData["roles"] = _applicationDBContext.categories.ToList();
+
+
             return View();
         }
 
         // POST: PassengerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(/*IFormCollection collection*/BookingDetails details)
+        public ActionResult Create(BookingDetails details)
         {
             try
             {
@@ -66,6 +100,7 @@ namespace CloudComputingPT.Controllers
                 {
                     var current_User = _userManager.GetUserId(User);
                     details.passengerId = new Guid(current_User);
+                   
                   _applicationDBContext.bookingDetails.Add(details);
                     _applicationDBContext.SaveChanges();
                     

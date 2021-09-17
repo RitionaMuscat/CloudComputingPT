@@ -54,23 +54,14 @@ namespace CloudComputingPT.Migrations
                     passengerId = table.Column<Guid>(nullable: false),
                     residingAdress = table.Column<string>(nullable: true),
                     destinationAddress = table.Column<string>(nullable: true),
-                    isBookingConfirmed = table.Column<bool>(nullable: false)
+                    isBookingConfirmed = table.Column<bool>(nullable: false),
+                    luxury = table.Column<bool>(nullable: false),
+                    economy = table.Column<bool>(nullable: false),
+                    business = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_bookingDetails", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "categories",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
-                    CategoryName = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -238,9 +229,6 @@ namespace CloudComputingPT.Migrations
 
             migrationBuilder.DropTable(
                 name: "bookingDetails");
-
-            migrationBuilder.DropTable(
-                name: "categories");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

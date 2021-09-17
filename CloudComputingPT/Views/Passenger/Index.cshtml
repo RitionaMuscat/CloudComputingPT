@@ -14,32 +14,52 @@
     <h4>BookingDetails</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.passengerId)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.passengerId)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.residingAdress)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.residingAdress)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.destinationAddress)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.destinationAddress)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.isBookingConfirmed)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.isBookingConfirmed)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.luxury)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.luxury)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.economy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.economy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.business)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.business)
+        </dd>
+
     </dl>
 </div>
+
 <div>
     <a asp-action="Create">Create</a>|
     @*@Html.ActionLink("Create Booking", "Create")*@
