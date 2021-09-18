@@ -1,4 +1,6 @@
 using CloudComputingPT.Data;
+using CloudComputingPT.DataAccess.Interfaces;
+using CloudComputingPT.DataAccess.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -17,11 +19,14 @@ namespace CloudComputingPT
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private IWebHostEnvironment _host;
+        string projectId;
+        public Startup(IConfiguration configuration, IWebHostEnvironment host)
         {
             Configuration = configuration;
+            _host = host;
+            projectId = configuration.GetSection("ProjectId").Value;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -46,6 +51,9 @@ namespace CloudComputingPT
                 options.ClientId = "310025673018-5pip0bf5cimb6q8r71bgdaloasrqi4bn.apps.googleusercontent.com";
                 options.ClientSecret = "B-ACf9kCusUP00nkk-cA2eRG";
             });
+
+            services.AddScoped<IPubSubAccess, PubSubAccess>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

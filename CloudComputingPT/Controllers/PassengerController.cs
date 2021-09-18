@@ -1,4 +1,5 @@
 ﻿using CloudComputingPT.Data;
+using CloudComputingPT.DataAccess.Interfaces;
 using CloudComputingPT.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace CloudComputingPT.Controllers
@@ -16,11 +18,12 @@ namespace CloudComputingPT.Controllers
         private ApplicationDbContext _applicationDBContext;
         private readonly UserManager<IdentityUser> _userManager;
 
-
-        public PassengerController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager)
+        private IPubSubAccess _pubSubAccess;
+        public PassengerController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager, IPubSubAccess pubSubAccess)
         {
             _applicationDBContext = applicationDBContext;
             _userManager = userManager;
+            _pubSubAccess = pubSubAccess;
         }
         // GET: PassengerController
         public ActionResult Index()
@@ -58,6 +61,7 @@ namespace CloudComputingPT.Controllers
                     _applicationDBContext.bookingDetails.Add(details);
                     _applicationDBContext.SaveChanges();
                 }
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -133,6 +137,40 @@ namespace CloudComputingPT.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+        public async Task<IActionResult> SendEmail()
+        {
+            MailMessage mm = new MailMessage();
+            mm.To.Add("ritiona.muscat13@gmail.com");
+            mm.From = new MailAddress("ritionamuscatdemo@gmail.com");
+
+
+            mm.Subject = "Demo Test Pub Sub";
+            mm.Body = "This is a test Body for pub sub";
+
+            await _pubSubAccess.PublishEmailAsync(mm);
+            ReadEmail();
+            return Content("done");
+
+        }
+
+        public async Task<ActionResult> ReadEmail()
+        {
+            //process that is going to send out the email
+
+            var result = await _pubSubAccess.ReadEmail();
+
+            if (result != null)
+            {
+                string returnedResult = $"To: {result.MM.To},Body: {result.MM.Body}, AckId: {result.AckId}";
+                //the above line can be replaced with sending out the actual email using some smtp server or mail gun api
+                return Content(returnedResult);
+            }
+            else
+            {
+                return Content("no emails read");
             }
         }
     }

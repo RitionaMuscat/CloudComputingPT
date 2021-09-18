@@ -31,6 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "CloudComputingPT/1.0.0": {
         "dependencies": {
+          "Google.Cloud.PubSub.V1": "2.6.0",
           "Microsoft.AspNetCore.Authentication.Google": "3.1.18",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.17",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.15",
@@ -309,6 +310,233 @@
           "CloudComputingPT.dll": {}
         }
       },
+      "Google.Api.CommonProtos/2.3.0": {
+        "dependencies": {
+          "Google.Protobuf": "3.15.8"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Api.CommonProtos.dll": {
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Api.CommonProtos.dll": {}
+        }
+      },
+      "Google.Api.Gax/3.4.0": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Api.Gax.dll": {
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Api.Gax.dll": {}
+        }
+      },
+      "Google.Api.Gax.Grpc/3.4.0": {
+        "dependencies": {
+          "Google.Api.CommonProtos": "2.3.0",
+          "Google.Api.Gax": "3.4.0",
+          "Google.Apis.Auth": "1.52.0",
+          "Grpc.Auth": "2.38.0",
+          "Grpc.Core.Api": "2.38.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Api.Gax.Grpc.dll": {
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Api.Gax.Grpc.dll": {}
+        }
+      },
+      "Google.Api.Gax.Grpc.GrpcCore/3.4.0": {
+        "dependencies": {
+          "Google.Api.Gax.Grpc": "3.4.0",
+          "Grpc.Core": "2.38.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Api.Gax.Grpc.GrpcCore.dll": {
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Api.Gax.Grpc.GrpcCore.dll": {}
+        }
+      },
+      "Google.Apis/1.52.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.52.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.dll": {
+            "assemblyVersion": "1.52.0.0",
+            "fileVersion": "1.52.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Auth/1.52.0": {
+        "dependencies": {
+          "Google.Apis": "1.52.0",
+          "Google.Apis.Core": "1.52.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
+            "assemblyVersion": "1.52.0.0",
+            "fileVersion": "1.52.0.0"
+          },
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.52.0.0",
+            "fileVersion": "1.52.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.52.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {
+            "assemblyVersion": "1.52.0.0",
+            "fileVersion": "1.52.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {}
+        }
+      },
+      "Google.Cloud.Iam.V1/2.2.0": {
+        "dependencies": {
+          "Google.Api.Gax.Grpc.GrpcCore": "3.4.0",
+          "Grpc.Core": "2.38.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.Iam.V1.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.Iam.V1.dll": {}
+        }
+      },
+      "Google.Cloud.PubSub.V1/2.6.0": {
+        "dependencies": {
+          "Google.Api.Gax.Grpc.GrpcCore": "3.4.0",
+          "Google.Cloud.Iam.V1": "2.2.0",
+          "Grpc.Core": "2.38.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.PubSub.V1.dll": {
+            "assemblyVersion": "2.6.0.0",
+            "fileVersion": "2.6.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.PubSub.V1.dll": {}
+        }
+      },
+      "Google.Protobuf/3.15.8": {
+        "dependencies": {
+          "System.Memory": "4.5.3",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.15.8.0",
+            "fileVersion": "3.15.8.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Protobuf.dll": {}
+        }
+      },
+      "Grpc.Auth/2.38.0": {
+        "dependencies": {
+          "Google.Apis.Auth": "1.52.0",
+          "Grpc.Core.Api": "2.38.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Auth.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.38.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Grpc.Auth.dll": {}
+        }
+      },
+      "Grpc.Core/2.38.1": {
+        "dependencies": {
+          "Grpc.Core.Api": "2.38.1",
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.38.1.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libgrpc_csharp_ext.arm64.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libgrpc_csharp_ext.x64.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libgrpc_csharp_ext.x64.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/grpc_csharp_ext.x64.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/grpc_csharp_ext.x86.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Grpc.Core.dll": {}
+        }
+      },
+      "Grpc.Core.Api/2.38.1": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Core.Api.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.38.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Grpc.Core.Api.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.Google/3.1.18": {
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {
@@ -383,7 +611,7 @@
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Embedded": "3.1.15",
           "Microsoft.Extensions.Identity.Stores": "3.1.15",
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll": {
@@ -1091,7 +1319,7 @@
       "Microsoft.IdentityModel.JsonWebTokens/5.5.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "5.5.0",
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
@@ -1132,7 +1360,7 @@
       "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.5.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols": "5.5.0",
-          "Newtonsoft.Json": "12.0.2",
+          "Newtonsoft.Json": "12.0.3",
           "System.IdentityModel.Tokens.Jwt": "5.5.0"
         },
         "runtime": {
@@ -1148,7 +1376,7 @@
       "Microsoft.IdentityModel.Tokens/5.5.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Logging": "5.5.0",
-          "Newtonsoft.Json": "12.0.2",
+          "Newtonsoft.Json": "12.0.3",
           "System.Security.Cryptography.Cng": "4.5.0"
         },
         "runtime": {
@@ -1180,7 +1408,7 @@
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/3.1.5": {
         "dependencies": {
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
@@ -1196,7 +1424,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "3.1.17",
           "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "3.1.5",
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
@@ -1258,7 +1486,7 @@
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "3.3.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "3.1.5",
-          "Newtonsoft.Json": "12.0.2",
+          "Newtonsoft.Json": "12.0.3",
           "NuGet.Frameworks": "4.7.0"
         },
         "runtime": {
@@ -1346,11 +1574,11 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.2": {
+      "Newtonsoft.Json/12.0.3": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.0.2.23222"
+            "fileVersion": "12.0.3.23909"
           }
         },
         "compile": {
@@ -1761,7 +1989,7 @@
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "5.5.0",
           "Microsoft.IdentityModel.Tokens": "5.5.0",
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
@@ -3990,6 +4218,97 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Google.Api.CommonProtos/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+CKoDb9ZeZGb56MUb6I8hdkUmp2kLCycljv9FWOX5OfJeJ5WW3IaO26hCX1zKsXdxeXU14viC+WEuXhFgk807w==",
+      "path": "google.api.commonprotos/2.3.0",
+      "hashPath": "google.api.commonprotos.2.3.0.nupkg.sha512"
+    },
+    "Google.Api.Gax/3.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VPvJouQ5KJsSg2b95jKYEqYrYGaX/TLMdGTP/F1uZJLGYe9HWbt82mwAIU2yprpe9JBwqMdqV/hjI9QKxT3UHw==",
+      "path": "google.api.gax/3.4.0",
+      "hashPath": "google.api.gax.3.4.0.nupkg.sha512"
+    },
+    "Google.Api.Gax.Grpc/3.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a+UVlZOPkpoC3WyJsjM5qTe3rhriYmFGDH1R52zHa5ljRRd7NyrOdn/gjSttGZM1inHwEQ/bV+wNR86UAp/yEA==",
+      "path": "google.api.gax.grpc/3.4.0",
+      "hashPath": "google.api.gax.grpc.3.4.0.nupkg.sha512"
+    },
+    "Google.Api.Gax.Grpc.GrpcCore/3.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YAWUpKT0gZiSXoJSKVpzDPRWVZpSHa05Nz5sofLt1NyQZM9gsVp4ZjggZKSg5PoSp44CQVDCJ07T39ia9W9EBA==",
+      "path": "google.api.gax.grpc.grpccore/3.4.0",
+      "hashPath": "google.api.gax.grpc.grpccore.3.4.0.nupkg.sha512"
+    },
+    "Google.Apis/1.52.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5YWTBzHuNUiYIUoIBkCGYMokyYuaOuAn+w96lIJ2WNqeiAurKq3ZLqZ86fYae32PDWHZa+itFYc9O1iVfYi5dQ==",
+      "path": "google.apis/1.52.0",
+      "hashPath": "google.apis.1.52.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.52.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T7JKjq4zmk8b4lrOn+kyatgDQdLytoV+i6Fw4agyWlm4Q+bbZbu3DcCz+UuliEtXHbShgHD1PWfiMJoQGuPEog==",
+      "path": "google.apis.auth/1.52.0",
+      "hashPath": "google.apis.auth.1.52.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.52.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cgQpnZ9IC5SBNsAFTXHKUMB8bOkBWPLtXcLgwSYkV8oL0FfUdHwrDzH5qrf/mFB9fQIPgJyV6tdUwf2hu1UJ+A==",
+      "path": "google.apis.core/1.52.0",
+      "hashPath": "google.apis.core.1.52.0.nupkg.sha512"
+    },
+    "Google.Cloud.Iam.V1/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jWqHTSPf1vPv/FocN9f8iHC/JjgooywceQPUg4t/R0RExOzjb/bE/ExhnOl9RqX61DWpd4hk30M/RWtfXwEzGA==",
+      "path": "google.cloud.iam.v1/2.2.0",
+      "hashPath": "google.cloud.iam.v1.2.2.0.nupkg.sha512"
+    },
+    "Google.Cloud.PubSub.V1/2.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EZ4RKPxEFFarv4VOJLlZSpJWtiWTES9N3/4sWPZzyMX25SK7kMptgrS80zCIPSs4xYtGoaKrnf0vPVzDP7XQZQ==",
+      "path": "google.cloud.pubsub.v1/2.6.0",
+      "hashPath": "google.cloud.pubsub.v1.2.6.0.nupkg.sha512"
+    },
+    "Google.Protobuf/3.15.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tA0S9QXJq+r3CjwBlcn5glEUrbdAxhPWO4yhq5+ycn6WW6+nsvqzO6Qf6NE9XWbEz/F2QSpBTxjdTI7SvVy7CQ==",
+      "path": "google.protobuf/3.15.8",
+      "hashPath": "google.protobuf.3.15.8.nupkg.sha512"
+    },
+    "Grpc.Auth/2.38.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tu/pTqbJ0fnZzbM3TbEL+6MMy24/RxdJAyZYHQvdNATu/MfCbNchjrgRQSptbGSvxrt1zntCpKwZT4QSw7CtYg==",
+      "path": "grpc.auth/2.38.0",
+      "hashPath": "grpc.auth.2.38.0.nupkg.sha512"
+    },
+    "Grpc.Core/2.38.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dFgCYVMNaOYiagWJZ7X/1MkGzS7+fnirvqh+0DPw+rPvcEa5UFU7O747wWz+QTKzuZ9Sii7DjfSbgZj65/lWxw==",
+      "path": "grpc.core/2.38.1",
+      "hashPath": "grpc.core.2.38.1.nupkg.sha512"
+    },
+    "Grpc.Core.Api/2.38.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Z7e+LEXDCr2C0qUvyydShgLkuMChdT4biZsCg8xUaENZpO+y5VN4pUzcfj9jYVS8DOi8c/oqjx4WOlBuBKVhEg==",
+      "path": "grpc.core.api/2.38.1",
+      "hashPath": "grpc.core.api.2.38.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authentication.Google/3.1.18": {
       "type": "package",
       "serviceable": true,
@@ -4438,12 +4757,12 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "Newtonsoft.Json/12.0.2": {
+    "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
-      "path": "newtonsoft.json/12.0.2",
-      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "NuGet.Frameworks/4.7.0": {
       "type": "package",
