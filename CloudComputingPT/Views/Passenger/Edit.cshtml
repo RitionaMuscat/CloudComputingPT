@@ -1,0 +1,68 @@
+﻿@model CloudComputingPT.Models.BookingDetails
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>BookingDetails</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="residingAdress" class="control-label"></label>
+                <input asp-for="residingAdress" class="form-control" />
+                <span asp-validation-for="residingAdress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="destinationAddress" class="control-label"></label>
+                <input asp-for="destinationAddress" class="form-control" />
+                <span asp-validation-for="destinationAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isBookingConfirmed" /> @Html.DisplayNameFor(model => model.isBookingConfirmed)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="luxury" /> @Html.DisplayNameFor(model => model.luxury)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="economy" /> @Html.DisplayNameFor(model => model.economy)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="business" /> @Html.DisplayNameFor(model => model.business)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="flatPrice" class="control-label"></label>
+                <input asp-for="flatPrice" class="form-control" />
+                <span asp-validation-for="flatPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

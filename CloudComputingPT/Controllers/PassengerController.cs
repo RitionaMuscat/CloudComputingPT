@@ -67,18 +67,46 @@ namespace CloudComputingPT.Controllers
         }
 
         // GET: PassengerController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            BookingDetails bookingDetailsToEdit = new BookingDetails();
+            var getPassengerBooking = (from b in _applicationDBContext.bookingDetails
+                                       where b.Id.Equals(id)
+                                       select b).ToList();
+            foreach (var item in getPassengerBooking)
+            {
+                bookingDetailsToEdit.business = item.business;
+                bookingDetailsToEdit.destinationAddress = item.destinationAddress;
+                bookingDetailsToEdit.economy = item.economy;
+                bookingDetailsToEdit.flatPrice = item.flatPrice;
+                bookingDetailsToEdit.isBookingConfirmed = item.isBookingConfirmed;
+                bookingDetailsToEdit.luxury = item.luxury;
+                bookingDetailsToEdit.residingAdress = item.residingAdress;
+                bookingDetailsToEdit.Id = item.Id;
+                bookingDetailsToEdit.passengerId = item.passengerId;
+            }
+            return View(bookingDetailsToEdit);
         }
 
         // POST: PassengerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, BookingDetails bookingDetails)
         {
             try
             {
+                var getPassengerBooking = (from b in _applicationDBContext.bookingDetails
+                                           where b.Id.Equals(id)
+                                           select b).ToList();
+
+                if (User.Identity.IsAuthenticated)
+                {
+                    var current_User = _userManager.GetUserId(User);
+                    bookingDetails.passengerId = new Guid(current_User);
+                    _applicationDBContext.bookingDetails.Update(bookingDetails);
+                    _applicationDBContext.SaveChanges();
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             catch
