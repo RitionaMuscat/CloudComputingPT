@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CloudComputingPT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210917222803_MigrationCloudComputing")]
+    [Migration("20210918072731_MigrationCloudComputing")]
     partial class MigrationCloudComputing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace CloudComputingPT.Migrations
 
                     b.Property<bool>("economy")
                         .HasColumnType("bit");
+
+                    b.Property<double>("flatPrice")
+                        .HasColumnType("float");
 
                     b.Property<bool>("isBookingConfirmed")
                         .HasColumnType("bit");

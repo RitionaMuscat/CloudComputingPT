@@ -439,5 +439,5 @@ C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\Clo
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.pdb
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.genruntimeconfig.cache
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.csproj.AssemblyReference.cache
-C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\Razor\Views\Passenger\Index.cshtml.g.cs
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\Razor\Views\Passenger\Create.cshtml.g.cs
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\Razor\Views\Passenger\Index.cshtml.g.cs

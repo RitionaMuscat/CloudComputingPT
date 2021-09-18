@@ -57,7 +57,8 @@ namespace CloudComputingPT.Migrations
                     isBookingConfirmed = table.Column<bool>(nullable: false),
                     luxury = table.Column<bool>(nullable: false),
                     economy = table.Column<bool>(nullable: false),
-                    business = table.Column<bool>(nullable: false)
+                    business = table.Column<bool>(nullable: false),
+                    flatPrice = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {

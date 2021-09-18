@@ -35,6 +35,9 @@ namespace CloudComputingPT.Migrations
                     b.Property<bool>("economy")
                         .HasColumnType("bit");
 
+                    b.Property<double>("flatPrice")
+                        .HasColumnType("float");
+
                     b.Property<bool>("isBookingConfirmed")
                         .HasColumnType("bit");
 

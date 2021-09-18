@@ -16,10 +16,7 @@ namespace CloudComputingPT.Controllers
         private ApplicationDbContext _applicationDBContext;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public class InputModel
-        {
-             public string Name { get; set; }
-        }
+
         public PassengerController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager)
         {
             _applicationDBContext = applicationDBContext;
@@ -29,49 +26,9 @@ namespace CloudComputingPT.Controllers
         public ActionResult Index()
         {
             BookingDetails Det = new BookingDetails();
+            CreateBookingDetails bookingdetails = new CreateBookingDetails(_applicationDBContext);
+            return View(bookingdetails.book_details());
 
-            var PassengerBookings = (from a in _applicationDBContext.bookingDetails
-                                    select new
-                                    {
-                                    a.destinationAddress,
-                                    a.isBookingConfirmed,
-                                    a.residingAdress,
-                                    a.passengerId,
-                                    a.luxury,
-                                    a.economy,
-                                    a.business
-                                    
-                    
-                    } ).ToList();
-
-
-
-            foreach (var item in PassengerBookings)
-            {
-
-
-                Det.passengerId = item.passengerId;
-                Det.residingAdress = item.residingAdress;
-                Det.isBookingConfirmed = item.isBookingConfirmed;
-                Det.isBookingConfirmed.ToString();
-                Det.destinationAddress = item.destinationAddress;
-             if (item.luxury)
-                Det.luxury = item.luxury;
-             else if (item.business)
-                Det.business = item.business;
-             else
-                Det.economy = item.economy;
-              
-
-
-
-
-            }
-           
-            if (Det.Id != null)
-                return View(Det);
-            else
-                return View();
         }
 
         // GET: PassengerController/Details/5
@@ -83,9 +40,6 @@ namespace CloudComputingPT.Controllers
         // GET: PassengerController/Create
         public ActionResult Create()
         {
-            //ViewData["roles"] = _applicationDBContext.categories.ToList();
-
-
             return View();
         }
 
@@ -100,10 +54,9 @@ namespace CloudComputingPT.Controllers
                 {
                     var current_User = _userManager.GetUserId(User);
                     details.passengerId = new Guid(current_User);
-                   
-                  _applicationDBContext.bookingDetails.Add(details);
+                    details.flatPrice = 1.25;
+                    _applicationDBContext.bookingDetails.Add(details);
                     _applicationDBContext.SaveChanges();
-                    
                 }
                 return RedirectToAction(nameof(Index));
             }
