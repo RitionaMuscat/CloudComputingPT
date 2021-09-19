@@ -1,20 +1,16 @@
 ﻿using CloudComputingPT.DataAccess.Interfaces;
 using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Google.Cloud.PubSub.V1;
 using System.Net.Mail;
 using Newtonsoft.Json;
 using Google.Protobuf;
-using System.Threading;
 using CloudComputingPT.Models;
+using Grpc.Core;
 
 namespace CloudComputingPT.DataAccess.Repositories
 {
- 
-
     public class PubSubAccess : IPubSubAccess
     {
         private string projectId;
@@ -33,43 +29,59 @@ namespace CloudComputingPT.DataAccess.Repositories
                 Data = ByteString.CopyFromUtf8(mail_serialized)
             };
             return await client.PublishAsync(message);
-
-     
-    }
+        }
 
         public async Task<MailMessageAckId> ReadEmail()
         {
             SubscriptionName subName = new SubscriptionName(projectId, "myQueue-sub");
             SubscriberServiceApiClient subscriberClient = SubscriberServiceApiClient.Create();
-            MailMessageAckId mailMessageAckId = null;
-            int messageCount = 0;
-            MailMessage mm = null;
+
+            MailMessageAckId mmWithAckId = null;
             try
             {
+                // Pull messages from server,
+                // allowing an immediate response if there are no messages.
                 PullResponse response = await subscriberClient.PullAsync(subName, returnImmediately: true, maxMessages: 1);
-                if(response.ReceivedMessages.Count>0)
+                // Print out each received message.
+
+                if (response.ReceivedMessages.Count > 0)
                 {
-                    string text = System.Text.Encoding.UTF8.GetString(response.ReceivedMessages[0].Message.Data.ToArray());
-                    mm = JsonConvert.DeserializeObject<MailMessage>(text);
-                    mailMessageAckId = new MailMessageAckId
+
+                    string text = response.ReceivedMessages[0].Message.Data.ToStringUtf8();
+
+                    var mm = JsonConvert.DeserializeObject<MyMailMessage>(text.ToString());
+
+                    mmWithAckId = new MailMessageAckId
                     {
                         MM = mm,
                         AckId = response.ReceivedMessages[0].AckId
                     };
                 }
-                foreach (ReceivedMessage msg in response.ReceivedMessages)
-                {
-                    string text = System.Text.Encoding.UTF8.GetString(msg.Message.Data.ToArray());
-                    Console.WriteLine($"Message: {msg.Message.MessageId}: {text}");
-                    Interlocked.Increment(ref messageCount);
-                }
+                else return null;
             }
-            catch (Exception)
+            catch (RpcException ex) when (ex.Status.StatusCode == StatusCode.Unavailable)
             {
-
-                throw;
+                // UNAVAILABLE due to too many concurrent pull requests pending for the given subscription.
             }
-            return mailMessageAckId;
+
+            return mmWithAckId;
+
+        }
+
+        public void AcknowledgeMessage(string ackId)
+        {
+            SubscriptionName subName = new SubscriptionName(projectId, "myQueue-sub");
+            SubscriberServiceApiClient subscriberClient = SubscriberServiceApiClient.Create();
+            try
+            {
+                subscriberClient.Acknowledge(subName, new List<string>() { ackId });
+            }
+            catch (RpcException ex) when (ex.Status.StatusCode == StatusCode.Unavailable)
+            {
+                // UNAVAILABLE due to too many concurrent pull requests pending for the given subscription.
+            }
+
+
         }
     }
 }

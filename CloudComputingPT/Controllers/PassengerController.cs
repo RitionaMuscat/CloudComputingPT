@@ -146,20 +146,15 @@ namespace CloudComputingPT.Controllers
             mm.To.Add("ritiona.muscat13@gmail.com");
             mm.From = new MailAddress("ritionamuscatdemo@gmail.com");
 
-
             mm.Subject = "Demo Test Pub Sub";
             mm.Body = "This is a test Body for pub sub";
 
             await _pubSubAccess.PublishEmailAsync(mm);
-            ReadEmail();
+            await ReadEmail();
             return Content("done");
-
         }
-
         public async Task<ActionResult> ReadEmail()
         {
-            //process that is going to send out the email
-
             var result = await _pubSubAccess.ReadEmail();
 
             if (result != null)
@@ -172,6 +167,12 @@ namespace CloudComputingPT.Controllers
             {
                 return Content("no emails read");
             }
+        }
+        public ActionResult AcknowledgeMessage(string ackId)
+        {
+            _pubSubAccess.AcknowledgeMessage(ackId);
+
+            return Content("done");
         }
     }
 }

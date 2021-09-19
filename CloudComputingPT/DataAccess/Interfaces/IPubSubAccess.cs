@@ -12,6 +12,6 @@ namespace CloudComputingPT.DataAccess.Interfaces
     {
         Task<string> PublishEmailAsync(MailMessage mail);
        Task< MailMessageAckId> ReadEmail();
-
+        void AcknowledgeMessage(string ackId);
     }
 }
