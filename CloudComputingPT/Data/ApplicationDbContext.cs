@@ -14,7 +14,7 @@ namespace CloudComputingPT.Data
         {
         }
 
-        //public DbSet<Categories> categories { get; set; }
+        public DbSet<DriverService> driverServices { get; set; }
         public DbSet<BookingDetails> bookingDetails { get; set; }
 
 

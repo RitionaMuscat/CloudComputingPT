@@ -51,17 +51,15 @@ namespace CloudComputingPT.DataAccess.Repositories
 
                         var text = response.ReceivedMessages[0].Message;
 
+                        var mm = JsonConvert.DeserializeObject<MyMailMessage>(text.ToString());
 
-                        //var mm = JsonConvert.DeserializeObject<MyMailMessage>(text);
-                        var mm =  JsonConvert.DeserializeObject<MyMailMessage>(text.ToString());
-                     
                         mmWithAckId = new MailMessageAckId
                         {
                             MM = mm,
                             AckId = response.ReceivedMessages[0].AckId
                         };
                     }
-                    catch(JsonException EX )
+                    catch (JsonException EX)
                     {
                         System.Console.WriteLine(EX.Message.ToString());
                     }
@@ -89,8 +87,6 @@ namespace CloudComputingPT.DataAccess.Repositories
             {
                 // UNAVAILABLE due to too many concurrent pull requests pending for the given subscription.
             }
-
-
         }
     }
 }

@@ -37,6 +37,12 @@
                                 </li>
 
                             }
+                            else if (User.IsInRole("Driver"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Index" asp-controller="Driver" asp-action="Index">Driver Available Services </a>
+                                </li>
+                            }
                         }
                     </ul>
                 </div>

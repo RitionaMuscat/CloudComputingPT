@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CloudComputingPT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210918072731_MigrationCloudComputing")]
+    [Migration("20210921165015_MigrationCloudComputing")]
     partial class MigrationCloudComputing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,6 +55,47 @@ namespace CloudComputingPT.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("bookingDetails");
+                });
+
+            modelBuilder.Entity("CloudComputingPT.Models.DriverService", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("airCondition")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("business")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("capacity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("condition")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("driverId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("economy")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("foodOrDrinks")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("luxury")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("registrationPlate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("driverServices");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

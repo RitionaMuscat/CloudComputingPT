@@ -55,6 +55,47 @@ namespace CloudComputingPT.Migrations
                     b.ToTable("bookingDetails");
                 });
 
+            modelBuilder.Entity("CloudComputingPT.Models.DriverService", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("airCondition")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("business")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("capacity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("condition")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("driverId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("economy")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("foodOrDrinks")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("luxury")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("registrationPlate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("driverServices");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

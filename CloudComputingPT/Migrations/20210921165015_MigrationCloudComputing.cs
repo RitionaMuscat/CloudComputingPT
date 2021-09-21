@@ -66,6 +66,27 @@ namespace CloudComputingPT.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "driverServices",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    driverId = table.Column<Guid>(nullable: false),
+                    luxury = table.Column<bool>(nullable: false),
+                    economy = table.Column<bool>(nullable: false),
+                    business = table.Column<bool>(nullable: false),
+                    capacity = table.Column<int>(nullable: false),
+                    condition = table.Column<string>(nullable: true),
+                    registrationPlate = table.Column<string>(nullable: true),
+                    airCondition = table.Column<bool>(nullable: false),
+                    foodOrDrinks = table.Column<bool>(nullable: false),
+                    Picture = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_driverServices", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -230,6 +251,9 @@ namespace CloudComputingPT.Migrations
 
             migrationBuilder.DropTable(
                 name: "bookingDetails");
+
+            migrationBuilder.DropTable(
+                name: "driverServices");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -4,9 +4,7 @@ using CloudComputingPT.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -28,16 +26,9 @@ namespace CloudComputingPT.Controllers
         // GET: PassengerController
         public ActionResult Index()
         {
-            BookingDetails Det = new BookingDetails();
             CreateBookingDetails bookingdetails = new CreateBookingDetails(_applicationDBContext);
             return View(bookingdetails.book_details());
 
-        }
-
-        // GET: PassengerController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
         }
 
         // GET: PassengerController/Create
@@ -120,25 +111,25 @@ namespace CloudComputingPT.Controllers
         }
 
         // GET: PassengerController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: PassengerController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //// POST: PassengerController/Delete/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(int id, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
         public async Task<IActionResult> SendEmail(Guid id)
         {
