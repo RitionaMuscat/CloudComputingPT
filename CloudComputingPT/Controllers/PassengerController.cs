@@ -140,18 +140,43 @@ namespace CloudComputingPT.Controllers
             }
         }
 
-        public async Task<IActionResult> SendEmail()
+        public async Task<IActionResult> SendEmail(Guid id)
         {
-            MailMessage mm = new MailMessage();
-            mm.To.Add("ritiona.muscat13@gmail.com");
-            mm.From = new MailAddress("ritionamuscatdemo@gmail.com");
+            var email = _userManager.GetUserName(User);
+            var bookingDetails = (from a in _applicationDBContext.bookingDetails
+                                  where a.Id.Equals(id)
+                                  select new
+                                  {
+                                      a.Id,
+                                      a.residingAdress,
+                                      a.destinationAddress,
+                                      a.luxury,
+                                      a.isBookingConfirmed,
+                                      a.economy,
+                                      a.business
 
-            mm.Subject = "Demo Test Pub Sub";
-            mm.Body = "This is a test Body for pub sub";
+                                  }).ToList();
+            MailMessage mm = new MailMessage();
+            MailMessage _mm = new MailMessage();
+            mm.To.Add(email);
+            mm.From = new MailAddress("ritionamuscatdemo@gmail.com");
+            foreach (var item in bookingDetails)
+            {
+                mm.Subject = $"Your Booking Details: {item.Id}";
+                mm.Body = $"Residing Status {item.residingAdress} \n Destination Address: {item.destinationAddress}";
+                if (item.luxury && item.isBookingConfirmed)
+                    mm.Body = mm.Body + $"\n Service Type: Luxury \n Booking Confirmed: Yes";
+                else if (item.economy && item.isBookingConfirmed)
+                    mm.Body = mm.Body + $"\n Service Type: Economy \n Booking Confirmed: Yes";
+                else if (item.business && item.isBookingConfirmed)
+                    mm.Body = mm.Body + $"\n Service Type: Business \n Booking Confirmed: Yes";
+             
+            }
 
             await _pubSubAccess.PublishEmailAsync(mm);
+
             await ReadEmail();
-            return Content("done");
+            return RedirectToAction("Index");
         }
         public async Task<ActionResult> ReadEmail()
         {
@@ -172,7 +197,7 @@ namespace CloudComputingPT.Controllers
         {
             _pubSubAccess.AcknowledgeMessage(ackId);
 
-            return Content("done");
+            return RedirectToAction("Index");
         }
     }
 }

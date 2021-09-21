@@ -46,16 +46,25 @@ namespace CloudComputingPT.DataAccess.Repositories
 
                 if (response.ReceivedMessages.Count > 0)
                 {
-
-                    string text = response.ReceivedMessages[0].Message.Data.ToStringUtf8();
-
-                    var mm = JsonConvert.DeserializeObject<MyMailMessage>(text.ToString());
-
-                    mmWithAckId = new MailMessageAckId
+                    try
                     {
-                        MM = mm,
-                        AckId = response.ReceivedMessages[0].AckId
-                    };
+
+                        var text = response.ReceivedMessages[0].Message;
+
+
+                        //var mm = JsonConvert.DeserializeObject<MyMailMessage>(text);
+                        var mm =  JsonConvert.DeserializeObject<MyMailMessage>(text.ToString());
+                     
+                        mmWithAckId = new MailMessageAckId
+                        {
+                            MM = mm,
+                            AckId = response.ReceivedMessages[0].AckId
+                        };
+                    }
+                    catch(JsonException EX )
+                    {
+                        System.Console.WriteLine(EX.Message.ToString());
+                    }
                 }
                 else return null;
             }
