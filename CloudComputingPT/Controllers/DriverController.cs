@@ -1,9 +1,11 @@
 ﻿using CloudComputingPT.Data;
 using CloudComputingPT.Models;
+using Google.Cloud.Storage.V1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.IO;
 
 namespace CloudComputingPT.Controllers
 {
@@ -40,21 +42,36 @@ namespace CloudComputingPT.Controllers
         // POST: DriverController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DriverService driverService)
+        public ActionResult Create(DriverService driverService, IFormFile file)
         {
             try
             {
+            
+                string filePath = Directory.GetCurrentDirectory();
+                var copyfile = System.IO.File.Create(filePath + @"\Files\"+ file.FileName);
+                file.CopyTo(copyfile);
+               
+                 var gcsStorage = StorageClient.Create();
+
+                copyfile.Close();
+                var f = System.IO.File.OpenRead(filePath + @"\Files\" + file.FileName);
+
+                string objectName = Path.GetFileName(filePath + @"\Files\" + file.FileName);
+
+                gcsStorage.UploadObject("cloudcomputing_bucket", objectName, null, f);
+
                 var loggedInUser = _userManager.GetUserId(User);
-                
-                driverService.driverId = new Guid( loggedInUser );
-                
+
+                driverService.driverId = new Guid(loggedInUser);
+
                 _applicationDBContext.driverServices.Add(driverService);
                 _applicationDBContext.SaveChanges();
-                
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message.ToString());
                 return View();
             }
         }

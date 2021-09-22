@@ -464,3 +464,6 @@ C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\Clo
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\cloudcomputing-325812-e64a8ffaa524.json
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\Razor\Views\Driver\Create.cshtml.g.cs
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\Razor\Views\Driver\Index.cshtml.g.cs
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Api.Gax.Rest.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Apis.Storage.v1.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Storage.V1.dll

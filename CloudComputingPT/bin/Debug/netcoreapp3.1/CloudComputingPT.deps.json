@@ -32,6 +32,7 @@
       "CloudComputingPT/1.0.0": {
         "dependencies": {
           "Google.Cloud.PubSub.V1": "2.6.0",
+          "Google.Cloud.Storage.V1": "3.5.0",
           "Microsoft.AspNetCore.Authentication.Google": "3.1.18",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.17",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.15",
@@ -372,6 +373,21 @@
           "lib/netstandard2.0/Google.Api.Gax.Grpc.GrpcCore.dll": {}
         }
       },
+      "Google.Api.Gax.Rest/3.3.0": {
+        "dependencies": {
+          "Google.Api.Gax": "3.4.0",
+          "Google.Apis.Auth": "1.52.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Api.Gax.Rest.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Api.Gax.Rest.dll": {}
+        }
+      },
       "Google.Apis/1.52.0": {
         "dependencies": {
           "Google.Apis.Core": "1.52.0"
@@ -420,6 +436,21 @@
           "lib/netstandard2.0/Google.Apis.Core.dll": {}
         }
       },
+      "Google.Apis.Storage.v1/1.51.0.2234": {
+        "dependencies": {
+          "Google.Apis": "1.52.0",
+          "Google.Apis.Auth": "1.52.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Storage.v1.dll": {
+            "assemblyVersion": "1.51.0.2234",
+            "fileVersion": "1.51.0.2234"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Storage.v1.dll": {}
+        }
+      },
       "Google.Cloud.Iam.V1/2.2.0": {
         "dependencies": {
           "Google.Api.Gax.Grpc.GrpcCore": "3.4.0",
@@ -449,6 +480,21 @@
         },
         "compile": {
           "lib/netstandard2.0/Google.Cloud.PubSub.V1.dll": {}
+        }
+      },
+      "Google.Cloud.Storage.V1/3.5.0": {
+        "dependencies": {
+          "Google.Api.Gax.Rest": "3.3.0",
+          "Google.Apis.Storage.v1": "1.51.0.2234"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.Storage.V1.dll": {
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.Storage.V1.dll": {}
         }
       },
       "Google.Protobuf/3.15.8": {
@@ -4246,6 +4292,13 @@
       "path": "google.api.gax.grpc.grpccore/3.4.0",
       "hashPath": "google.api.gax.grpc.grpccore.3.4.0.nupkg.sha512"
     },
+    "Google.Api.Gax.Rest/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/D3FTV5FH3I4vzbLSRWmeU/1ckFP6kk195Wga51UTWip7EYRUSEFEQzCWb+VHcB7HgCYp98KvIxg3B6cDKPJQQ==",
+      "path": "google.api.gax.rest/3.3.0",
+      "hashPath": "google.api.gax.rest.3.3.0.nupkg.sha512"
+    },
     "Google.Apis/1.52.0": {
       "type": "package",
       "serviceable": true,
@@ -4267,6 +4320,13 @@
       "path": "google.apis.core/1.52.0",
       "hashPath": "google.apis.core.1.52.0.nupkg.sha512"
     },
+    "Google.Apis.Storage.v1/1.51.0.2234": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l50ucoQRH4p2itqrdxjn9nyA7MNv1zXmWPZPkzASxGP9N/5jnZJ8ZAoRqXXPEDkQ7+1DK+O188iNfJ+WtZ4ELQ==",
+      "path": "google.apis.storage.v1/1.51.0.2234",
+      "hashPath": "google.apis.storage.v1.1.51.0.2234.nupkg.sha512"
+    },
     "Google.Cloud.Iam.V1/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -4280,6 +4340,13 @@
       "sha512": "sha512-EZ4RKPxEFFarv4VOJLlZSpJWtiWTES9N3/4sWPZzyMX25SK7kMptgrS80zCIPSs4xYtGoaKrnf0vPVzDP7XQZQ==",
       "path": "google.cloud.pubsub.v1/2.6.0",
       "hashPath": "google.cloud.pubsub.v1.2.6.0.nupkg.sha512"
+    },
+    "Google.Cloud.Storage.V1/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-43R4eBJqJCTSN8kVh9apl3CgvwJwS2senmgbgppp1VLibmZgvaM27k5F7PXJU9IWN+ZsF4MujjPCvxlHyIFfTA==",
+      "path": "google.cloud.storage.v1/3.5.0",
+      "hashPath": "google.cloud.storage.v1.3.5.0.nupkg.sha512"
     },
     "Google.Protobuf/3.15.8": {
       "type": "package",
