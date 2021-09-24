@@ -13,7 +13,7 @@ namespace CloudComputingPT.Controllers
     {
         private ApplicationDbContext _applicationDBContext;
         private readonly UserManager<IdentityUser> _userManager;
-
+        string bucketName = "cloudcomputing_bucket2";
         public DriverController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager)
         {
             _applicationDBContext = applicationDBContext;
@@ -23,7 +23,9 @@ namespace CloudComputingPT.Controllers
         public ActionResult Index()
         {
             CreateDriverService driverService = new CreateDriverService(_applicationDBContext);
-
+            var gStorage = StorageClient.Create();
+            var getStorageObj = gStorage.ListObjects(bucketName);
+            
             return View(driverService.driver_service());
         }
 
@@ -52,18 +54,19 @@ namespace CloudComputingPT.Controllers
                 file.CopyTo(copyfile);
                
                  var gcsStorage = StorageClient.Create();
-
+                
                 copyfile.Close();
                 var f = System.IO.File.OpenRead(filePath + @"\Files\" + file.FileName);
 
                 string objectName = Path.GetFileName(filePath + @"\Files\" + file.FileName);
-
-                gcsStorage.UploadObject("cloudcomputing_bucket", objectName, null, f);
+                driverService.Picture = @"https://storage.googleapis.com/"+bucketName+"/"+objectName;
+                gcsStorage.UploadObject(bucketName, objectName, null, f);
 
                 var loggedInUser = _userManager.GetUserId(User);
 
                 driverService.driverId = new Guid(loggedInUser);
 
+              
                 _applicationDBContext.driverServices.Add(driverService);
                 _applicationDBContext.SaveChanges();
 

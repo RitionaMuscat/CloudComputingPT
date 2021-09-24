@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,6 +25,10 @@ namespace CloudComputingPT.Models
         public bool airCondition { get; set; }
 
         public bool foodOrDrinks { get; set; }
+
+        [DataType(DataType.ImageUrl)]
         public string Picture { get; set; }
+
+        
     }
 }
