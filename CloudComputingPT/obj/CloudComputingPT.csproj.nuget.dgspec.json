@@ -81,6 +81,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "SharpMap": {
+              "target": "Package",
+              "version": "[1.2.0, )"
             }
           },
           "imports": [
