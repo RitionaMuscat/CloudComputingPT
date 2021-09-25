@@ -23,5 +23,16 @@ namespace CloudComputingPT.Models
             return _bookingDetails;
 
         }
+
+        public IQueryable<BookingDetails> GetBookingDetails()
+        {
+            var getAvailableBookings = from b in _applicationDBContext.bookingDetails
+                                       where b.isBookingConfirmed == true
+                                       select b;
+
+            _bookingDetails = getAvailableBookings;
+            return _bookingDetails;
+                                      
+        }
     }
 }

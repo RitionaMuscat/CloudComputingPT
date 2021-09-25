@@ -110,27 +110,6 @@ namespace CloudComputingPT.Controllers
             }
         }
 
-        // GET: PassengerController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: PassengerController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
         public async Task<IActionResult> SendEmail(Guid id)
         {
             var email = _userManager.GetUserName(User);

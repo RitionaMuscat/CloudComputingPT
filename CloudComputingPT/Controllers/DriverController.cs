@@ -29,12 +29,6 @@ namespace CloudComputingPT.Controllers
             return View(driverService.driver_service());
         }
 
-        // GET: DriverController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: DriverController/Create
         public ActionResult Create()
         {
@@ -79,12 +73,6 @@ namespace CloudComputingPT.Controllers
             }
         }
 
-        // GET: DriverController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
         // POST: DriverController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -119,6 +107,14 @@ namespace CloudComputingPT.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult AvailableServices()
+        {
+
+            CreateBookingDetails createBookingDetails = new CreateBookingDetails(_applicationDBContext);
+
+            return View(createBookingDetails.GetBookingDetails());
         }
     }
 }
