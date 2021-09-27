@@ -145,29 +145,9 @@ namespace CloudComputingPT.Controllers
 
             await _pubSubAccess.PublishEmailAsync(mm);
 
-            await ReadEmail();
+            //await ReadEmail();
             return RedirectToAction("Index");
         }
-        public async Task<ActionResult> ReadEmail()
-        {
-            var result = await _pubSubAccess.ReadEmail();
-
-            if (result != null)
-            {
-                string returnedResult = $"To: {result.MM.To},Body: {result.MM.Body}, AckId: {result.AckId}";
-                //the above line can be replaced with sending out the actual email using some smtp server or mail gun api
-                return Content(returnedResult);
-            }
-            else
-            {
-                return Content("no emails read");
-            }
-        }
-        public ActionResult AcknowledgeMessage(string ackId)
-        {
-            _pubSubAccess.AcknowledgeMessage(ackId);
-
-            return RedirectToAction("Index");
-        }
+     
     }
 }
