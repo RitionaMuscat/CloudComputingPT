@@ -112,6 +112,7 @@ namespace CloudComputingPT.Controllers
 
         public async Task<IActionResult> SendEmail(Guid id)
         {
+
             var email = _userManager.GetUserName(User);
             var bookingDetails = (from a in _applicationDBContext.bookingDetails
                                   where a.Id.Equals(id)

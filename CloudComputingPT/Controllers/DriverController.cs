@@ -123,6 +123,7 @@ namespace CloudComputingPT.Controllers
         }
         public async Task<ActionResult> ReadEmail()
         {
+            
             var result = await _pubSubAccess.ReadEmail();
 
             if (result != null)
