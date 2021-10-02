@@ -48,9 +48,35 @@ namespace CloudComputingPT.Controllers
                 {
                     var current_User = _userManager.GetUserId(User);
                     details.passengerId = new Guid(current_User);
-                    details.flatPrice = 1.25;
-                    _applicationDBContext.bookingDetails.Add(details);
-                    _applicationDBContext.SaveChanges();
+                    if (details.luxury && details.economy && !details.business)
+                    {
+                        ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
+                    }
+                    else if (details.luxury && !details.economy && details.business)
+                    {
+                        ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
+                    }
+                    else if (!details.luxury && details.economy && details.business)
+                    {
+                        ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
+                    }
+                    else if (details.luxury && details.economy && !details.business)
+                    {
+                        ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
+                    }
+                    else
+                    {
+                        if (details.luxury)
+                            details.flatPrice = 2.10;
+                        else if (details.economy)
+                            details.flatPrice = 1.25;
+                        else
+                            details.flatPrice = 1.00;
+
+                        _applicationDBContext.bookingDetails.Add(details);
+                        _applicationDBContext.SaveChanges();
+                    }
+
                 }
 
                 return RedirectToAction(nameof(Index));
