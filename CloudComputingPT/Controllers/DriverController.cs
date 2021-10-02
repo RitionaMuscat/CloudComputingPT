@@ -114,13 +114,13 @@ namespace CloudComputingPT.Controllers
             }
         }
 
-        public ActionResult AvailableServices()
-        {
+        //public ActionResult AvailableServices()
+        //{
 
-            CreateBookingDetails createBookingDetails = new CreateBookingDetails(_applicationDBContext);
+        //    CreateBookingDetails createBookingDetails = new CreateBookingDetails(_applicationDBContext);
 
-            return View(createBookingDetails.GetBookingDetails());
-        }
+        //    return View(createBookingDetails.GetBookingDetails());
+        //}
         public async Task<ActionResult> ReadEmail()
         {
             
