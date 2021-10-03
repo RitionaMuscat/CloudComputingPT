@@ -13,18 +13,17 @@ namespace CloudComputingPT.Data
             : base(options)
         {
         }
-
-        public DbSet<DriverService> driverServices { get; set; }
-        public DbSet<BookingDetails> bookingDetails { get; set; }
-
-
+        public DbSet<DriverService> DriverServices { get; set; }
+        public DbSet<BookingDetails> BookingDetails { get; set; }
+        public DbSet<PricesDictionary> PricesDictionary { get; set; }
+        public DbSet<Categories> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<Categories>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
+            modelBuilder.Entity<DriverService>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             modelBuilder.Entity<BookingDetails>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
-
+            modelBuilder.Entity<Categories>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

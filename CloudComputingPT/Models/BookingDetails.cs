@@ -21,7 +21,6 @@ namespace CloudComputingPT.Models
         public bool business { get; set; }
      
         public double flatPrice { get; set; }
-        
-
+     
     }
 }

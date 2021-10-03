@@ -16,7 +16,7 @@ namespace CloudComputingPT.Models
         public IQueryable<DriverService> _driverService { get; set; }
         public IQueryable<DriverService> driver_service()
         {
-            var driverService = from a in _applicationDBContext.driverServices
+            var driverService = from a in _applicationDBContext.DriverServices
                                  select a;
 
             _driverService = driverService;

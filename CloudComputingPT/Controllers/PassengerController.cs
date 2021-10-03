@@ -1,7 +1,6 @@
 ﻿using CloudComputingPT.Data;
 using CloudComputingPT.DataAccess.Interfaces;
 using CloudComputingPT.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -15,13 +14,14 @@ namespace CloudComputingPT.Controllers
     {
         private ApplicationDbContext _applicationDBContext;
         private readonly UserManager<IdentityUser> _userManager;
-
+        private ICacheAccess _cacheAccess;
         private IPubSubAccess _pubSubAccess;
-        public PassengerController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager, IPubSubAccess pubSubAccess)
+        public PassengerController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager, IPubSubAccess pubSubAccess, ICacheAccess cacheAccess)
         {
             _applicationDBContext = applicationDBContext;
             _userManager = userManager;
             _pubSubAccess = pubSubAccess;
+            _cacheAccess = cacheAccess;
         }
         // GET: PassengerController
         public ActionResult Index()
@@ -73,7 +73,7 @@ namespace CloudComputingPT.Controllers
                         else
                             details.flatPrice = 1.00;
 
-                        _applicationDBContext.bookingDetails.Add(details);
+                        _applicationDBContext.BookingDetails.Add(details);
                         _applicationDBContext.SaveChanges();
                     }
 
@@ -91,21 +91,24 @@ namespace CloudComputingPT.Controllers
         public ActionResult Edit(Guid id)
         {
             BookingDetails bookingDetailsToEdit = new BookingDetails();
-            var getPassengerBooking = (from b in _applicationDBContext.bookingDetails
+            var getPassengerBooking = (from b in _applicationDBContext.BookingDetails
                                        where b.Id.Equals(id)
                                        select b).ToList();
-            foreach (var item in getPassengerBooking)
+            if (User.IsInRole("Passenger"))
             {
-                bookingDetailsToEdit.business = item.business;
-                bookingDetailsToEdit.destinationAddress = item.destinationAddress;
-                bookingDetailsToEdit.economy = item.economy;
-                bookingDetailsToEdit.flatPrice = item.flatPrice;
-                bookingDetailsToEdit.isBookingConfirmed = item.isBookingConfirmed;
-                bookingDetailsToEdit.luxury = item.luxury;
-                bookingDetailsToEdit.residingAdress = item.residingAdress;
-                bookingDetailsToEdit.Id = item.Id;
-                bookingDetailsToEdit.passengerId = item.passengerId;
+                foreach (var item in getPassengerBooking)
+                {
+                    bookingDetailsToEdit.business = item.business;
+                    bookingDetailsToEdit.destinationAddress = item.destinationAddress;
+                    bookingDetailsToEdit.economy = item.economy;
+                    bookingDetailsToEdit.isBookingConfirmed = item.isBookingConfirmed;
+                    bookingDetailsToEdit.luxury = item.luxury;
+                    bookingDetailsToEdit.residingAdress = item.residingAdress;
+                    bookingDetailsToEdit.Id = item.Id;
+                    bookingDetailsToEdit.passengerId = item.passengerId;
+                }
             }
+
             return View(bookingDetailsToEdit);
         }
 
@@ -116,7 +119,7 @@ namespace CloudComputingPT.Controllers
         {
             try
             {
-                var getPassengerBooking = (from b in _applicationDBContext.bookingDetails
+                var getPassengerBooking = (from b in _applicationDBContext.BookingDetails
                                            where b.Id.Equals(id)
                                            select b).ToList();
 
@@ -124,7 +127,7 @@ namespace CloudComputingPT.Controllers
                 {
                     var current_User = _userManager.GetUserId(User);
                     bookingDetails.passengerId = new Guid(current_User);
-                    _applicationDBContext.bookingDetails.Update(bookingDetails);
+                    _applicationDBContext.BookingDetails.Update(bookingDetails);
                     _applicationDBContext.SaveChanges();
                 }
 
@@ -138,9 +141,8 @@ namespace CloudComputingPT.Controllers
 
         public async Task<IActionResult> SendEmail(Guid id)
         {
-
             var email = _userManager.GetUserName(User);
-            var bookingDetails = (from a in _applicationDBContext.bookingDetails
+            var bookingDetails = (from a in _applicationDBContext.BookingDetails
                                   where a.Id.Equals(id)
                                   select new
                                   {
@@ -167,14 +169,12 @@ namespace CloudComputingPT.Controllers
                     mm.Body = mm.Body + $"\n Service Type: Economy \n Booking Confirmed: Yes";
                 else if (item.business && item.isBookingConfirmed)
                     mm.Body = mm.Body + $"\n Service Type: Business \n Booking Confirmed: Yes";
-             
             }
-
             await _pubSubAccess.PublishEmailAsync(mm);
 
-            //await ReadEmail();
+
             return RedirectToAction("Index");
         }
-     
+
     }
 }

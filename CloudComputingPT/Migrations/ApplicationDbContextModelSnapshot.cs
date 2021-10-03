@@ -52,14 +52,33 @@ namespace CloudComputingPT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("bookingDetails");
+                    b.ToTable("BookingDetails");
+                });
+
+            modelBuilder.Entity("CloudComputingPT.Models.Categories", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<string>("categories")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("flatPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("CloudComputingPT.Models.DriverService", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
@@ -93,7 +112,20 @@ namespace CloudComputingPT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("driverServices");
+                    b.ToTable("DriverServices");
+                });
+
+            modelBuilder.Entity("CloudComputingPT.Models.PricesDictionary", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PricesDictionary");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -47,7 +47,7 @@ namespace CloudComputingPT.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "bookingDetails",
+                name: "BookingDetails",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
@@ -62,14 +62,27 @@ namespace CloudComputingPT.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_bookingDetails", x => x.Id);
+                    table.PrimaryKey("PK_BookingDetails", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "driverServices",
+                name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
+                    categories = table.Column<string>(nullable: true),
+                    flatPrice = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DriverServices",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     driverId = table.Column<Guid>(nullable: false),
                     luxury = table.Column<bool>(nullable: false),
                     economy = table.Column<bool>(nullable: false),
@@ -83,7 +96,19 @@ namespace CloudComputingPT.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_driverServices", x => x.Id);
+                    table.PrimaryKey("PK_DriverServices", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PricesDictionary",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PricesDictionary", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -250,10 +275,16 @@ namespace CloudComputingPT.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "bookingDetails");
+                name: "BookingDetails");
 
             migrationBuilder.DropTable(
-                name: "driverServices");
+                name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "DriverServices");
+
+            migrationBuilder.DropTable(
+                name: "PricesDictionary");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

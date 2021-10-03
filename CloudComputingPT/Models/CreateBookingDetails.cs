@@ -16,7 +16,7 @@ namespace CloudComputingPT.Models
         public IQueryable<BookingDetails> _bookingDetails { get; set; }
         public IQueryable<BookingDetails> book_details()
         {
-            var bookingDetails = from a in _applicationDBContext.bookingDetails
+            var bookingDetails = from a in _applicationDBContext.BookingDetails
                                  select a;
 
             _bookingDetails = bookingDetails;
@@ -26,7 +26,7 @@ namespace CloudComputingPT.Models
 
         public IQueryable<BookingDetails> GetBookingDetails()
         {
-            var getAvailableBookings = from b in _applicationDBContext.bookingDetails
+            var getAvailableBookings = from b in _applicationDBContext.BookingDetails
                                        where b.isBookingConfirmed == true
                                        select b;
 

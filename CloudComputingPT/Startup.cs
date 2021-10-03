@@ -37,6 +37,7 @@ namespace CloudComputingPT
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -53,7 +54,7 @@ namespace CloudComputingPT
             });
 
             services.AddScoped<IPubSubAccess, PubSubAccess>();
-
+            services.AddScoped<ICacheAccess, CacheAccess>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
