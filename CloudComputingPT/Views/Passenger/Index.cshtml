@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<CloudComputingPT.Models.BookingDetails>
-
-
 <!DOCTYPE html>
 
 <html>
@@ -36,9 +34,7 @@
                 <th>
                     Business
                 </th>
-                <th>
-                    Flat Price
-                </th>
+
                 <th></th>
             </tr>
         </thead>
@@ -67,23 +63,17 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.business)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.flatPrice)
-                    </td>
+
                     <td>
                         @if (item.isBookingConfirmed)
                         {
                             <a asp-action="SendEmail" asp-route-id="@item.Id">Send Confirmation</a>
                         }
-                        | <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        | <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
                     </td>
                 </tr>
             }
-
         </tbody>
-
     </table>
 </body>
 </html>

@@ -18,7 +18,6 @@ namespace CloudComputingPT.DataAccess.Repositories
         {
             projectId = config.GetSection("ProjectId").Value;
         }
-
         public async Task<string> PublishEmailAsync(MailMessage mail)
         {
             TopicName topic = new TopicName(projectId, "myQueue");
@@ -30,7 +29,6 @@ namespace CloudComputingPT.DataAccess.Repositories
             };
             return await client.PublishAsync(message);
         }
-
         public async Task<MailMessageAckId> ReadEmail()
         {
             SubscriptionName subName = new SubscriptionName(projectId, "myQueue-sub");
@@ -48,7 +46,6 @@ namespace CloudComputingPT.DataAccess.Repositories
                 {
                     try
                     {
-
                         var text = response.ReceivedMessages[0].Message;
 
                         var mm = JsonConvert.DeserializeObject<MyMailMessage>(text.ToString());

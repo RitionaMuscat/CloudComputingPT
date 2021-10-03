@@ -1,8 +1,5 @@
 ﻿using CloudComputingPT.Data;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CloudComputingPT.Models
 {
@@ -21,7 +18,6 @@ namespace CloudComputingPT.Models
 
             _bookingDetails = bookingDetails;
             return _bookingDetails;
-
         }
 
         public IQueryable<BookingDetails> GetBookingDetails()
@@ -32,7 +28,6 @@ namespace CloudComputingPT.Models
 
             _bookingDetails = getAvailableBookings;
             return _bookingDetails;
-                                      
         }
     }
 }

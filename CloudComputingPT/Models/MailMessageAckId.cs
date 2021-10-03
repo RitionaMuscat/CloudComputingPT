@@ -5,7 +5,6 @@
         public MyMailMessage MM { get; set; }
         public string AckId { get; set; }
     }
-
     public class MyMailMessage
     {
         public string To { get; set; }

@@ -17,18 +17,15 @@ namespace CloudComputingPT.Models
         public bool luxury { get; set; }
         public bool economy { get; set; }
         public bool business { get; set; }
-
         public int capacity { get; set; }
         public string condition { get; set; }
         public string registrationPlate { get; set; }
-        
         public bool airCondition { get; set; }
-
         public bool foodOrDrinks { get; set; }
 
         [DataType(DataType.ImageUrl)]
         public string Picture { get; set; }
 
-        
+
     }
 }

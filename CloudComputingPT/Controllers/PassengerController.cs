@@ -66,19 +66,10 @@ namespace CloudComputingPT.Controllers
                     }
                     else
                     {
-                        if (details.luxury)
-                            details.flatPrice = 2.10;
-                        else if (details.economy)
-                            details.flatPrice = 1.25;
-                        else
-                            details.flatPrice = 1.00;
-
                         _applicationDBContext.BookingDetails.Add(details);
                         _applicationDBContext.SaveChanges();
                     }
-
                 }
-
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -172,9 +163,7 @@ namespace CloudComputingPT.Controllers
             }
             await _pubSubAccess.PublishEmailAsync(mm);
 
-
             return RedirectToAction("Index");
         }
-
     }
 }

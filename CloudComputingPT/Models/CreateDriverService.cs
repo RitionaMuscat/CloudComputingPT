@@ -1,8 +1,5 @@
 ﻿using CloudComputingPT.Data;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CloudComputingPT.Models
 {
@@ -17,7 +14,7 @@ namespace CloudComputingPT.Models
         public IQueryable<DriverService> driver_service()
         {
             var driverService = from a in _applicationDBContext.DriverServices
-                                 select a;
+                                select a;
 
             _driverService = driverService;
             return _driverService;

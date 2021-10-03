@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<CloudComputingPT.Models.DriverService>
-
-
 <!DOCTYPE html>
 
 <html>
@@ -19,7 +17,7 @@
                     Driver Id
                 </th>
                 <th>
-                   Luxury
+                    Luxury
                 </th>
                 <th>
                     Economy
@@ -43,7 +41,7 @@
                     Food / Drinks Allowed ?
                 </th>
                 <th>
-                   Picture
+                    Picture
                 </th>
                 <th></th>
             </tr>
@@ -80,13 +78,7 @@
                         @Html.DisplayFor(modelItem => item.foodOrDrinks)
                     </td>
                     <td>
-                        <img src="@item.Picture" style="width:40px;"/>
-                   
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <img src="@item.Picture" style="width:40px;" />
                     </td>
                 </tr>
             }
