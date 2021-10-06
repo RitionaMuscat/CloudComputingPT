@@ -41,15 +41,16 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="Index" asp-controller="Driver" asp-action="Index">Driver Services </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Index" asp-controller="ConfirmedBooking" asp-action="Index">Passenger Requests / Confirmed Bookings </a>
+                                </li>
                             }
                             else if (User.IsInRole("Admin") || User.IsInRole("Driver"))
                             {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="Index" asp-controller="Categories" asp-action="Index">Categories Prices</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="Index" asp-controller="ConfirmedBooking" asp-action="Index">Passenger Requests / Confirmed Bookings </a>
-                                </li>
+
                             }
                         }
                     </ul>

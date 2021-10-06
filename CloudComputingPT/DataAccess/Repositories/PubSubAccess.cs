@@ -18,14 +18,18 @@ namespace CloudComputingPT.DataAccess.Repositories
         {
             projectId = config.GetSection("ProjectId").Value;
         }
-        public async Task<string> PublishEmailAsync(MailMessage mail)
+        public async Task<string> PublishEmailAsync(MyMailMessage mail)
         {
             TopicName topic = new TopicName(projectId, "myQueue");
             PublisherClient client = await PublisherClient.CreateAsync(topic);
             string mail_serialized = JsonConvert.SerializeObject(mail);
             PubsubMessage message = new PubsubMessage
             {
-                Data = ByteString.CopyFromUtf8(mail_serialized)
+                Data = ByteString.CopyFromUtf8(mail_serialized),
+                Attributes =
+                {
+                    { "category" ,"new category of message"}
+                }
             };
             return await client.PublishAsync(message);
         }

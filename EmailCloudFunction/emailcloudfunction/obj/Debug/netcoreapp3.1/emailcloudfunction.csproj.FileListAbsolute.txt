@@ -27,3 +27,4 @@ C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\Clo
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\EmailCloudFunction\emailcloudfunction\obj\Debug\netcoreapp3.1\emailcloudfunction.dll
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\EmailCloudFunction\emailcloudfunction\obj\Debug\netcoreapp3.1\emailcloudfunction.pdb
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\EmailCloudFunction\emailcloudfunction\obj\Debug\netcoreapp3.1\emailcloudfunction.genruntimeconfig.cache
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\EmailCloudFunction\emailcloudfunction\bin\Debug\netcoreapp3.1\RestSharp.dll

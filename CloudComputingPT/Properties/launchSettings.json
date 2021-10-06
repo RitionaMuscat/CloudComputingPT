@@ -14,7 +14,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation",
-        "GOOGLE_APPLICATION_CREDENTIALS": "cloudcomputing-325812-e64a8ffaa524.json"
+        "GOOGLE_APPLICATION_CREDENTIALS": "cloudcomputing2558-ce9a289f4b14.json"
       }
     },
     "CloudComputingPT": {
@@ -24,7 +24,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation",
-        "GOOGLE_APPLICATION_CREDENTIALS": "cloudcomputing-325812-e64a8ffaa524.json"
+        "GOOGLE_APPLICATION_CREDENTIALS": "cloudcomputing2558-ce9a289f4b14.json"
       }
     }
   }

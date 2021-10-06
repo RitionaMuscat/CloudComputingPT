@@ -1,6 +1,7 @@
 using CloudComputingPT.Data;
 using CloudComputingPT.DataAccess.Interfaces;
 using CloudComputingPT.DataAccess.Repositories;
+using Google.Cloud.Diagnostics.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -41,12 +42,21 @@ namespace CloudComputingPT
 
             services.AddAuthentication().AddGoogle(options =>
             {
-                options.ClientId = "310025673018-5pip0bf5cimb6q8r71bgdaloasrqi4bn.apps.googleusercontent.com";
-                options.ClientSecret = "B-ACf9kCusUP00nkk-cA2eRG";
+                options.ClientId = "98773056871-6s16041blvn1jp2qdkpoe8oal18uhslf.apps.googleusercontent.com";// "310025673018-5pip0bf5cimb6q8r71bgdaloasrqi4bn.apps.googleusercontent.com";
+                options.ClientSecret = "rGv6G47DHsRO-gO322Ey59Nm";// "B-ACf9kCusUP00nkk-cA2eRG";
             });
 
             services.AddScoped<IPubSubAccess, PubSubAccess>();
             services.AddScoped<ICacheAccess, CacheAccess>();
+            services.AddScoped<ILogAccess, LogsAccess>();
+            
+
+            services.AddGoogleExceptionLogging(options =>
+            {
+                options.ProjectId = projectId;
+                options.ServiceName = "CloudComputing2";
+                options.Version = "0.01";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +73,7 @@ namespace CloudComputingPT
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseGoogleExceptionLogging();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

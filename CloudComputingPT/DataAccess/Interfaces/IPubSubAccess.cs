@@ -6,7 +6,7 @@ namespace CloudComputingPT.DataAccess.Interfaces
 {
     public interface IPubSubAccess
     {
-        Task<string> PublishEmailAsync(MailMessage mail);
+        Task<string> PublishEmailAsync(MyMailMessage mail);
         Task<MailMessageAckId> ReadEmail();
         void AcknowledgeMessage(string ackId);
     }

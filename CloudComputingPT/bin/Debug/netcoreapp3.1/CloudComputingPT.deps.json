@@ -31,6 +31,8 @@
     ".NETCoreApp,Version=v3.1": {
       "CloudComputingPT/1.0.0": {
         "dependencies": {
+          "Google.Cloud.Diagnostics.AspNetCore": "4.2.0",
+          "Google.Cloud.Logging.V2": "3.4.0",
           "Google.Cloud.PubSub.V1": "2.6.0",
           "Google.Cloud.Storage.V1": "3.5.0",
           "Microsoft.AspNetCore.Authentication.Google": "3.1.18",
@@ -67,16 +69,16 @@
           "Microsoft.AspNetCore.Diagnostics.HealthChecks": "3.1.0.0",
           "Microsoft.AspNetCore": "3.1.0.0",
           "Microsoft.AspNetCore.HostFiltering": "3.1.0.0",
-          "Microsoft.AspNetCore.Hosting.Abstractions": "3.1.0.0",
+          "Microsoft.AspNetCore.Hosting.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Hosting": "3.1.0.0",
-          "Microsoft.AspNetCore.Hosting.Server.Abstractions": "3.1.0.0",
+          "Microsoft.AspNetCore.Hosting.Server.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Html.Abstractions.Reference": "3.1.0.0",
-          "Microsoft.AspNetCore.Http.Abstractions": "3.1.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Http.Connections.Common": "3.1.0.0",
           "Microsoft.AspNetCore.Http.Connections": "3.1.0.0",
-          "Microsoft.AspNetCore.Http": "3.1.0.0",
-          "Microsoft.AspNetCore.Http.Extensions": "3.1.0.0",
-          "Microsoft.AspNetCore.Http.Features": "3.1.0.0",
+          "Microsoft.AspNetCore.Http.Reference": "3.1.0.0",
+          "Microsoft.AspNetCore.Http.Extensions.Reference": "3.1.0.0",
+          "Microsoft.AspNetCore.Http.Features.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.HttpOverrides": "3.1.0.0",
           "Microsoft.AspNetCore.HttpsPolicy": "3.1.0.0",
           "Microsoft.AspNetCore.Identity": "3.1.0.0",
@@ -117,7 +119,7 @@
           "Microsoft.AspNetCore.SignalR.Protocols.Json": "3.1.0.0",
           "Microsoft.AspNetCore.StaticFiles": "3.1.0.0",
           "Microsoft.AspNetCore.WebSockets": "3.1.0.0",
-          "Microsoft.AspNetCore.WebUtilities": "3.1.0.0",
+          "Microsoft.AspNetCore.WebUtilities.Reference": "3.1.0.0",
           "Microsoft.CSharp.Reference": "4.0.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "3.1.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.1.0.0",
@@ -132,9 +134,9 @@
           "Microsoft.Extensions.FileProviders.Composite": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Physical": "3.1.0.0",
           "Microsoft.Extensions.FileSystemGlobbing": "3.1.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "3.1.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions.Reference": "3.1.0.0",
           "Microsoft.Extensions.Hosting": "3.1.0.0",
-          "Microsoft.Extensions.Http": "3.1.0.0",
+          "Microsoft.Extensions.Http.Reference": "3.1.0.0",
           "Microsoft.Extensions.Localization.Abstractions": "3.1.0.0",
           "Microsoft.Extensions.Localization": "3.1.0.0",
           "Microsoft.Extensions.Logging.Configuration": "3.1.0.0",
@@ -143,12 +145,12 @@
           "Microsoft.Extensions.Logging.EventLog": "3.1.0.0",
           "Microsoft.Extensions.Logging.EventSource": "3.1.0.0",
           "Microsoft.Extensions.Logging.TraceSource": "3.1.0.0",
-          "Microsoft.Extensions.ObjectPool": "3.1.0.0",
+          "Microsoft.Extensions.ObjectPool.Reference": "3.1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.0.0",
           "Microsoft.Extensions.Options.DataAnnotations": "3.1.0.0",
           "Microsoft.Extensions.WebEncoders": "3.1.0.0",
           "Microsoft.JSInterop": "3.1.0.0",
-          "Microsoft.Net.Http.Headers": "3.1.0.0",
+          "Microsoft.Net.Http.Headers.Reference": "3.1.0.0",
           "Microsoft.VisualBasic.Core": "10.0.5.0",
           "Microsoft.VisualBasic": "10.0.0.0",
           "Microsoft.Win32.Primitives.Reference": "4.1.2.0",
@@ -178,7 +180,7 @@
           "System.Diagnostics.EventLog": "4.0.2.0",
           "System.Diagnostics.FileVersionInfo": "4.0.4.0",
           "System.Diagnostics.Process": "4.2.2.0",
-          "System.Diagnostics.StackTrace": "4.1.2.0",
+          "System.Diagnostics.StackTrace.Reference": "4.1.2.0",
           "System.Diagnostics.TextWriterTraceListener": "4.1.2.0",
           "System.Diagnostics.Tools.Reference": "4.1.2.0",
           "System.Diagnostics.TraceSource": "4.1.2.0",
@@ -386,48 +388,48 @@
           "lib/netstandard2.0/Google.Api.CommonProtos.dll": {}
         }
       },
-      "Google.Api.Gax/3.4.0": {
+      "Google.Api.Gax/3.5.0": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Api.Gax.dll": {
-            "assemblyVersion": "3.4.0.0",
-            "fileVersion": "3.4.0.0"
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Google.Api.Gax.dll": {}
         }
       },
-      "Google.Api.Gax.Grpc/3.4.0": {
+      "Google.Api.Gax.Grpc/3.5.0": {
         "dependencies": {
           "Google.Api.CommonProtos": "2.3.0",
-          "Google.Api.Gax": "3.4.0",
-          "Google.Apis.Auth": "1.52.0",
+          "Google.Api.Gax": "3.5.0",
+          "Google.Apis.Auth": "1.53.0",
           "Grpc.Auth": "2.38.0",
           "Grpc.Core.Api": "2.38.1"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Api.Gax.Grpc.dll": {
-            "assemblyVersion": "3.4.0.0",
-            "fileVersion": "3.4.0.0"
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Google.Api.Gax.Grpc.dll": {}
         }
       },
-      "Google.Api.Gax.Grpc.GrpcCore/3.4.0": {
+      "Google.Api.Gax.Grpc.GrpcCore/3.5.0": {
         "dependencies": {
-          "Google.Api.Gax.Grpc": "3.4.0",
+          "Google.Api.Gax.Grpc": "3.5.0",
           "Grpc.Core": "2.38.1"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Api.Gax.Grpc.GrpcCore.dll": {
-            "assemblyVersion": "3.4.0.0",
-            "fileVersion": "3.4.0.0"
+            "assemblyVersion": "3.5.0.0",
+            "fileVersion": "3.5.0.0"
           }
         },
         "compile": {
@@ -436,8 +438,8 @@
       },
       "Google.Api.Gax.Rest/3.3.0": {
         "dependencies": {
-          "Google.Api.Gax": "3.4.0",
-          "Google.Apis.Auth": "1.52.0"
+          "Google.Api.Gax": "3.5.0",
+          "Google.Apis.Auth": "1.53.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Api.Gax.Rest.dll": {
@@ -449,33 +451,33 @@
           "lib/netstandard2.0/Google.Api.Gax.Rest.dll": {}
         }
       },
-      "Google.Apis/1.52.0": {
+      "Google.Apis/1.53.0": {
         "dependencies": {
-          "Google.Apis.Core": "1.52.0"
+          "Google.Apis.Core": "1.53.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.dll": {
-            "assemblyVersion": "1.52.0.0",
-            "fileVersion": "1.52.0.0"
+            "assemblyVersion": "1.53.0.0",
+            "fileVersion": "1.53.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Google.Apis.dll": {}
         }
       },
-      "Google.Apis.Auth/1.52.0": {
+      "Google.Apis.Auth/1.53.0": {
         "dependencies": {
-          "Google.Apis": "1.52.0",
-          "Google.Apis.Core": "1.52.0"
+          "Google.Apis": "1.53.0",
+          "Google.Apis.Core": "1.53.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
-            "assemblyVersion": "1.52.0.0",
-            "fileVersion": "1.52.0.0"
+            "assemblyVersion": "1.53.0.0",
+            "fileVersion": "1.53.0.0"
           },
           "lib/netstandard2.0/Google.Apis.Auth.dll": {
-            "assemblyVersion": "1.52.0.0",
-            "fileVersion": "1.52.0.0"
+            "assemblyVersion": "1.53.0.0",
+            "fileVersion": "1.53.0.0"
           }
         },
         "compile": {
@@ -483,14 +485,14 @@
           "lib/netstandard2.0/Google.Apis.Auth.dll": {}
         }
       },
-      "Google.Apis.Core/1.52.0": {
+      "Google.Apis.Core/1.53.0": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Core.dll": {
-            "assemblyVersion": "1.52.0.0",
-            "fileVersion": "1.52.0.0"
+            "assemblyVersion": "1.53.0.0",
+            "fileVersion": "1.53.0.0"
           }
         },
         "compile": {
@@ -499,8 +501,8 @@
       },
       "Google.Apis.Storage.v1/1.51.0.2234": {
         "dependencies": {
-          "Google.Apis": "1.52.0",
-          "Google.Apis.Auth": "1.52.0"
+          "Google.Apis": "1.53.0",
+          "Google.Apis.Auth": "1.53.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Storage.v1.dll": {
@@ -512,9 +514,45 @@
           "lib/netstandard2.0/Google.Apis.Storage.v1.dll": {}
         }
       },
+      "Google.Cloud.Diagnostics.AspNetCore/4.2.0": {
+        "dependencies": {
+          "Google.Cloud.Diagnostics.Common": "4.2.0",
+          "Grpc.Core": "2.38.1",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.1.1",
+          "Microsoft.AspNetCore.Http": "2.1.1",
+          "Microsoft.AspNetCore.Http.Extensions": "2.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.Diagnostics.AspNetCore.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.Diagnostics.AspNetCore.dll": {}
+        }
+      },
+      "Google.Cloud.Diagnostics.Common/4.2.0": {
+        "dependencies": {
+          "Google.Api.Gax.Grpc.GrpcCore": "3.5.0",
+          "Google.Cloud.Logging.V2": "3.4.0",
+          "Google.Cloud.Trace.V1": "2.1.0",
+          "Microsoft.Extensions.Http": "2.1.1",
+          "System.Diagnostics.StackTrace": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.Diagnostics.Common.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.Diagnostics.Common.dll": {}
+        }
+      },
       "Google.Cloud.Iam.V1/2.2.0": {
         "dependencies": {
-          "Google.Api.Gax.Grpc.GrpcCore": "3.4.0",
+          "Google.Api.Gax.Grpc.GrpcCore": "3.5.0",
           "Grpc.Core": "2.38.1"
         },
         "runtime": {
@@ -527,9 +565,39 @@
           "lib/netstandard2.0/Google.Cloud.Iam.V1.dll": {}
         }
       },
+      "Google.Cloud.Logging.Type/3.3.0": {
+        "dependencies": {
+          "Google.Api.CommonProtos": "2.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.Logging.Type.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.Logging.Type.dll": {}
+        }
+      },
+      "Google.Cloud.Logging.V2/3.4.0": {
+        "dependencies": {
+          "Google.Api.Gax.Grpc.GrpcCore": "3.5.0",
+          "Google.Cloud.Logging.Type": "3.3.0",
+          "Grpc.Core": "2.38.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.Logging.V2.dll": {
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.Logging.V2.dll": {}
+        }
+      },
       "Google.Cloud.PubSub.V1/2.6.0": {
         "dependencies": {
-          "Google.Api.Gax.Grpc.GrpcCore": "3.4.0",
+          "Google.Api.Gax.Grpc.GrpcCore": "3.5.0",
           "Google.Cloud.Iam.V1": "2.2.0",
           "Grpc.Core": "2.38.1"
         },
@@ -558,6 +626,21 @@
           "lib/netstandard2.0/Google.Cloud.Storage.V1.dll": {}
         }
       },
+      "Google.Cloud.Trace.V1/2.1.0": {
+        "dependencies": {
+          "Google.Api.Gax.Grpc.GrpcCore": "3.5.0",
+          "Grpc.Core": "2.38.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.Trace.V1.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.Trace.V1.dll": {}
+        }
+      },
       "Google.Protobuf/3.15.8": {
         "dependencies": {
           "System.Memory": "4.5.3",
@@ -575,7 +658,7 @@
       },
       "Grpc.Auth/2.38.0": {
         "dependencies": {
-          "Google.Apis.Auth": "1.52.0",
+          "Google.Apis.Auth": "1.53.0",
           "Grpc.Core.Api": "2.38.1"
         },
         "runtime": {
@@ -694,9 +777,50 @@
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Hosting.Abstractions/2.1.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Server.Abstractions": "2.1.1",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Hosting.Abstractions": "2.1.1"
+        }
+      },
+      "Microsoft.AspNetCore.Hosting.Server.Abstractions/2.1.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.1.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.17"
+        }
+      },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "dependencies": {
           "System.Text.Encodings.Web": "4.5.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http/2.1.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
+          "Microsoft.AspNetCore.WebUtilities": "2.1.1",
+          "Microsoft.Extensions.ObjectPool": "2.1.1",
+          "Microsoft.Extensions.Options": "3.1.17",
+          "Microsoft.Net.Http.Headers": "2.1.1"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Abstractions/2.1.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.1.1",
+          "System.Text.Encodings.Web": "4.5.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Extensions/2.1.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.15",
+          "Microsoft.Net.Http.Headers": "2.1.1",
+          "System.Buffers": "4.5.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.1.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.1.17"
         }
       },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/3.1.15": {
@@ -791,6 +915,12 @@
         "dependencies": {
           "Microsoft.AspNetCore.Html.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Razor": "2.2.0"
+        }
+      },
+      "Microsoft.AspNetCore.WebUtilities/2.1.1": {
+        "dependencies": {
+          "Microsoft.Net.Http.Headers": "2.1.1",
+          "System.Text.Encodings.Web": "4.5.0"
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -1319,6 +1449,21 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll": {}
         }
       },
+      "Microsoft.Extensions.Hosting.Abstractions/2.1.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.17",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.17",
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.15",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.17"
+        }
+      },
+      "Microsoft.Extensions.Http/2.1.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.17",
+          "Microsoft.Extensions.Logging": "3.1.17",
+          "Microsoft.Extensions.Options": "3.1.17"
+        }
+      },
       "Microsoft.Extensions.Identity.Core/3.1.15": {
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "3.1.15",
@@ -1379,6 +1524,7 @@
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.ObjectPool/2.1.1": {},
       "Microsoft.Extensions.Options/3.1.17": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.17",
@@ -1494,6 +1640,12 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "Microsoft.Net.Http.Headers/2.1.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.1.17",
+          "System.Buffers": "4.5.0"
         }
       },
       "Microsoft.NETCore.Platforms/5.0.0": {},
@@ -1889,15 +2041,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Buffers/4.3.0": {
-        "dependencies": {
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tracing": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Threading": "4.3.0"
-        }
-      },
+      "System.Buffers/4.5.0": {},
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -2204,6 +2348,14 @@
           "ref/netstandard2.0/System.Diagnostics.PerformanceCounter.dll": {}
         }
       },
+      "System.Diagnostics.StackTrace/4.3.0": {
+        "dependencies": {
+          "System.IO.FileSystem": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Metadata": "1.6.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
       "System.Diagnostics.Tools/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -2305,7 +2457,7 @@
       "System.IO.Compression/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "System.Buffers": "4.3.0",
+          "System.Buffers": "4.5.0",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Debug": "4.3.0",
           "System.IO": "4.3.0",
@@ -2323,7 +2475,7 @@
       },
       "System.IO.Compression.ZipFile/4.3.0": {
         "dependencies": {
-          "System.Buffers": "4.3.0",
+          "System.Buffers": "4.5.0",
           "System.IO": "4.3.0",
           "System.IO.Compression": "4.3.0",
           "System.IO.FileSystem": "4.3.0",
@@ -3142,7 +3294,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Hosting.Abstractions/3.1.0.0": {
+      "Microsoft.AspNetCore.Hosting.Abstractions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Hosting.Abstractions.dll": {}
         },
@@ -3154,7 +3306,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Hosting.Server.Abstractions/3.1.0.0": {
+      "Microsoft.AspNetCore.Hosting.Server.Abstractions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Hosting.Server.Abstractions.dll": {}
         },
@@ -3166,7 +3318,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Http.Abstractions/3.1.0.0": {
+      "Microsoft.AspNetCore.Http.Abstractions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.Abstractions.dll": {}
         },
@@ -3184,19 +3336,19 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Http/3.1.0.0": {
+      "Microsoft.AspNetCore.Http.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Http.Extensions/3.1.0.0": {
+      "Microsoft.AspNetCore.Http.Extensions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.Extensions.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Http.Features/3.1.0.0": {
+      "Microsoft.AspNetCore.Http.Features.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.Features.dll": {}
         },
@@ -3442,7 +3594,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.WebUtilities/3.1.0.0": {
+      "Microsoft.AspNetCore.WebUtilities.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.WebUtilities.dll": {}
         },
@@ -3532,7 +3684,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Hosting.Abstractions/3.1.0.0": {
+      "Microsoft.Extensions.Hosting.Abstractions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Hosting.Abstractions.dll": {}
         },
@@ -3544,7 +3696,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Http/3.1.0.0": {
+      "Microsoft.Extensions.Http.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Http.dll": {}
         },
@@ -3598,7 +3750,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.ObjectPool/3.1.0.0": {
+      "Microsoft.Extensions.ObjectPool.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.ObjectPool.dll": {}
         },
@@ -3628,7 +3780,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Net.Http.Headers/3.1.0.0": {
+      "Microsoft.Net.Http.Headers.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Net.Http.Headers.dll": {}
         },
@@ -3808,7 +3960,7 @@
         },
         "compileOnly": true
       },
-      "System.Diagnostics.StackTrace/4.1.2.0": {
+      "System.Diagnostics.StackTrace.Reference/4.1.2.0": {
         "compile": {
           "System.Diagnostics.StackTrace.dll": {}
         },
@@ -4607,26 +4759,26 @@
       "path": "google.api.commonprotos/2.3.0",
       "hashPath": "google.api.commonprotos.2.3.0.nupkg.sha512"
     },
-    "Google.Api.Gax/3.4.0": {
+    "Google.Api.Gax/3.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VPvJouQ5KJsSg2b95jKYEqYrYGaX/TLMdGTP/F1uZJLGYe9HWbt82mwAIU2yprpe9JBwqMdqV/hjI9QKxT3UHw==",
-      "path": "google.api.gax/3.4.0",
-      "hashPath": "google.api.gax.3.4.0.nupkg.sha512"
+      "sha512": "sha512-Kb8inCXQjvMgvfe4XjdFig3v9Jz7QSklnJK1K2IZgtFkemjQon5m29DoeEyurIAbkdtsZTe0bad+Nmoz/5ItPQ==",
+      "path": "google.api.gax/3.5.0",
+      "hashPath": "google.api.gax.3.5.0.nupkg.sha512"
     },
-    "Google.Api.Gax.Grpc/3.4.0": {
+    "Google.Api.Gax.Grpc/3.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-a+UVlZOPkpoC3WyJsjM5qTe3rhriYmFGDH1R52zHa5ljRRd7NyrOdn/gjSttGZM1inHwEQ/bV+wNR86UAp/yEA==",
-      "path": "google.api.gax.grpc/3.4.0",
-      "hashPath": "google.api.gax.grpc.3.4.0.nupkg.sha512"
+      "sha512": "sha512-LrOzGaMS5uUlS0P83GcdsXUstSv705qj0AREH4bQzyCtFRTpNm4eJS9JaB/9BzEAKKK8aXLu+OKWb45wJSjLQg==",
+      "path": "google.api.gax.grpc/3.5.0",
+      "hashPath": "google.api.gax.grpc.3.5.0.nupkg.sha512"
     },
-    "Google.Api.Gax.Grpc.GrpcCore/3.4.0": {
+    "Google.Api.Gax.Grpc.GrpcCore/3.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YAWUpKT0gZiSXoJSKVpzDPRWVZpSHa05Nz5sofLt1NyQZM9gsVp4ZjggZKSg5PoSp44CQVDCJ07T39ia9W9EBA==",
-      "path": "google.api.gax.grpc.grpccore/3.4.0",
-      "hashPath": "google.api.gax.grpc.grpccore.3.4.0.nupkg.sha512"
+      "sha512": "sha512-VbvdZFs5Vs+7KSkxu/kGSXDTWMSnH14wY5XNUjPcfxhaB8q0AaIMsbwIoIe4WxHD53Q6Fr2+8eL1suN2yDA4nw==",
+      "path": "google.api.gax.grpc.grpccore/3.5.0",
+      "hashPath": "google.api.gax.grpc.grpccore.3.5.0.nupkg.sha512"
     },
     "Google.Api.Gax.Rest/3.3.0": {
       "type": "package",
@@ -4635,26 +4787,26 @@
       "path": "google.api.gax.rest/3.3.0",
       "hashPath": "google.api.gax.rest.3.3.0.nupkg.sha512"
     },
-    "Google.Apis/1.52.0": {
+    "Google.Apis/1.53.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5YWTBzHuNUiYIUoIBkCGYMokyYuaOuAn+w96lIJ2WNqeiAurKq3ZLqZ86fYae32PDWHZa+itFYc9O1iVfYi5dQ==",
-      "path": "google.apis/1.52.0",
-      "hashPath": "google.apis.1.52.0.nupkg.sha512"
+      "sha512": "sha512-nLVl91WLUHuU/WVQfGXXf2UcNguTRvVorZujT06q6fjYKk/Q6UJDgEcO5Ti00vdb40sT1GQwnqUpPeSKjLSn2Q==",
+      "path": "google.apis/1.53.0",
+      "hashPath": "google.apis.1.53.0.nupkg.sha512"
     },
-    "Google.Apis.Auth/1.52.0": {
+    "Google.Apis.Auth/1.53.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-T7JKjq4zmk8b4lrOn+kyatgDQdLytoV+i6Fw4agyWlm4Q+bbZbu3DcCz+UuliEtXHbShgHD1PWfiMJoQGuPEog==",
-      "path": "google.apis.auth/1.52.0",
-      "hashPath": "google.apis.auth.1.52.0.nupkg.sha512"
+      "sha512": "sha512-f8MhaaP9aRoVpybRNfMKzBFrNh/Hw3z1TUBFsWWXYZOgcXFFUuFCFmAxyIjixdYxDG+DCwkoVnf5lSIXEy3QdA==",
+      "path": "google.apis.auth/1.53.0",
+      "hashPath": "google.apis.auth.1.53.0.nupkg.sha512"
     },
-    "Google.Apis.Core/1.52.0": {
+    "Google.Apis.Core/1.53.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cgQpnZ9IC5SBNsAFTXHKUMB8bOkBWPLtXcLgwSYkV8oL0FfUdHwrDzH5qrf/mFB9fQIPgJyV6tdUwf2hu1UJ+A==",
-      "path": "google.apis.core/1.52.0",
-      "hashPath": "google.apis.core.1.52.0.nupkg.sha512"
+      "sha512": "sha512-6pTO2f75pwYag0DenUz4A3fPBi2t8qHhlPAVXP6hsSWU5lP7pPqsxV8Oc2sgcBwVquMIL6DVw23Woc2vC73E9A==",
+      "path": "google.apis.core/1.53.0",
+      "hashPath": "google.apis.core.1.53.0.nupkg.sha512"
     },
     "Google.Apis.Storage.v1/1.51.0.2234": {
       "type": "package",
@@ -4663,12 +4815,40 @@
       "path": "google.apis.storage.v1/1.51.0.2234",
       "hashPath": "google.apis.storage.v1.1.51.0.2234.nupkg.sha512"
     },
+    "Google.Cloud.Diagnostics.AspNetCore/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jj/s1xQg4ra7VrQbWww+oTmAVXCGkog1j3vzUb8vDaSgX5zRKcbxljBNMASyQ03QYcwSpsgbWiGBzdEIpENwCg==",
+      "path": "google.cloud.diagnostics.aspnetcore/4.2.0",
+      "hashPath": "google.cloud.diagnostics.aspnetcore.4.2.0.nupkg.sha512"
+    },
+    "Google.Cloud.Diagnostics.Common/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5/pVipPOYzrtsUmaCxfKZMH0p94Pv6cKJcpkRETI1H1uYg1VXEmIcLre2qxhImDsA0tRUmvj+/J3X3Y4j0VNGw==",
+      "path": "google.cloud.diagnostics.common/4.2.0",
+      "hashPath": "google.cloud.diagnostics.common.4.2.0.nupkg.sha512"
+    },
     "Google.Cloud.Iam.V1/2.2.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-jWqHTSPf1vPv/FocN9f8iHC/JjgooywceQPUg4t/R0RExOzjb/bE/ExhnOl9RqX61DWpd4hk30M/RWtfXwEzGA==",
       "path": "google.cloud.iam.v1/2.2.0",
       "hashPath": "google.cloud.iam.v1.2.2.0.nupkg.sha512"
+    },
+    "Google.Cloud.Logging.Type/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mOHz0nK9xDd+BzY48xcZgGTyiMklWxXZvR0Gt8ZBRPVE1rrymaTiwDgDJDKzAQgKS59noNZpTkxiW4pcPKyx+Q==",
+      "path": "google.cloud.logging.type/3.3.0",
+      "hashPath": "google.cloud.logging.type.3.3.0.nupkg.sha512"
+    },
+    "Google.Cloud.Logging.V2/3.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-axcDMDEigkxCFlYLmyAyupsDnfVr7GzEkRh3yOf2pr3rjEet3BqggJTFF1MIaww/i98NFtgRl+De+BVLpHHj5Q==",
+      "path": "google.cloud.logging.v2/3.4.0",
+      "hashPath": "google.cloud.logging.v2.3.4.0.nupkg.sha512"
     },
     "Google.Cloud.PubSub.V1/2.6.0": {
       "type": "package",
@@ -4683,6 +4863,13 @@
       "sha512": "sha512-43R4eBJqJCTSN8kVh9apl3CgvwJwS2senmgbgppp1VLibmZgvaM27k5F7PXJU9IWN+ZsF4MujjPCvxlHyIFfTA==",
       "path": "google.cloud.storage.v1/3.5.0",
       "hashPath": "google.cloud.storage.v1.3.5.0.nupkg.sha512"
+    },
+    "Google.Cloud.Trace.V1/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0lZoxRGoIMUw8ML8LLTmqzBKyxK1TkEJp+7JZiOXGjmn2kFUwPxdjVPdoYLRR2MMQqCId/WcSRg1fdvejFo1HQ==",
+      "path": "google.cloud.trace.v1/2.1.0",
+      "hashPath": "google.cloud.trace.v1.2.1.0.nupkg.sha512"
     },
     "Google.Protobuf/3.15.8": {
       "type": "package",
@@ -4740,12 +4927,54 @@
       "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/3.1.17",
       "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.17.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Hosting.Abstractions/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-76cKcp2pWhvdV2TXTqMg/DyW7N6cDzTEhtL8vVWFShQN+Ylwv3eO/vUQr2BS3Hz4IZHEpL+FOo2T+MtymHDqDQ==",
+      "path": "microsoft.aspnetcore.hosting.abstractions/2.1.1",
+      "hashPath": "microsoft.aspnetcore.hosting.abstractions.2.1.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Hosting.Server.Abstractions/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+vD7HJYzAXNq17t+NgRkpS38cxuAyOBu8ixruOiA3nWsybozolUdALWiZ5QFtGRzajSLPFA2YsbO3NPcqoUwcw==",
+      "path": "microsoft.aspnetcore.hosting.server.abstractions/2.1.1",
+      "hashPath": "microsoft.aspnetcore.hosting.server.abstractions.2.1.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
       "path": "microsoft.aspnetcore.html.abstractions/2.2.0",
       "hashPath": "microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pPDcCW8spnyibK3krpxrOpaFHf5fjV6k1Hsl6gfh77N/8gRYlLU7MOQDUnjpEwdlHmtxwJKQJNxZqVQOmJGRUw==",
+      "path": "microsoft.aspnetcore.http/2.1.1",
+      "hashPath": "microsoft.aspnetcore.http.2.1.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kQUEVOU4loc8CPSb2WoHFTESqwIa8Ik7ysCBfTwzHAd0moWovc9JQLmhDIHlYLjHbyexqZAlkq/FPRUZqokebw==",
+      "path": "microsoft.aspnetcore.http.abstractions/2.1.1",
+      "hashPath": "microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Extensions/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ncAgV+cqsWSqjLXFUTyObGh4Tr7ShYYs3uW8Q/YpRwZn7eLV7dux5Z6GLY+rsdzmIHiia3Q2NWbLULQi7aziHw==",
+      "path": "microsoft.aspnetcore.http.extensions/2.1.1",
+      "hashPath": "microsoft.aspnetcore.http.extensions.2.1.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VklZ7hWgSvHBcDtwYYkdMdI/adlf7ebxTZ9kdzAhX+gUs5jSHE9mZlTamdgf9miSsxc1QjNazHXTDJdVPZKKTw==",
+      "path": "microsoft.aspnetcore.http.features/2.1.1",
+      "hashPath": "microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/3.1.15": {
       "type": "package",
@@ -4795,6 +5024,13 @@
       "sha512": "sha512-7YqK+H61lN6yj9RiQUko7oaOhKtRR9Q/kBcoWNRemhJdTIWOh1OmdvJKzZrMWOlff3BAjejkPQm+0V0qXk+B1w==",
       "path": "microsoft.aspnetcore.razor.runtime/2.2.0",
       "hashPath": "microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.WebUtilities/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PGKIZt4+412Z/XPoSjvYu/QIbTxcAQuEFNoA1Pw8a9mgmO0ZhNBmfaNyhgXFf7Rq62kP0tT/2WXpxdcQhkFUPA==",
+      "path": "microsoft.aspnetcore.webutilities/2.1.1",
+      "hashPath": "microsoft.aspnetcore.webutilities.2.1.1.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
@@ -4985,6 +5221,20 @@
       "path": "microsoft.extensions.fileproviders.embedded/3.1.15",
       "hashPath": "microsoft.extensions.fileproviders.embedded.3.1.15.nupkg.sha512"
     },
+    "Microsoft.Extensions.Hosting.Abstractions/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kVVdHnOFJbcXxgZzrT6nwkrWZTHL+47LT59S9J2Jp0BNO3EQWNEZHUUZMb/kKFV7LtW+bp+EuAOPNUqEcqI++Q==",
+      "path": "microsoft.extensions.hosting.abstractions/2.1.1",
+      "hashPath": "microsoft.extensions.hosting.abstractions.2.1.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Http/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GOly249seL3HL2+lgfLWHirsggRwK4EmSa6zUb+sPbgXHN+f9w/y/6XV3DPjYjtyt3v38FkPTD6odPcJJKtvlg==",
+      "path": "microsoft.extensions.http/2.1.1",
+      "hashPath": "microsoft.extensions.http.2.1.1.nupkg.sha512"
+    },
     "Microsoft.Extensions.Identity.Core/3.1.15": {
       "type": "package",
       "serviceable": true,
@@ -5012,6 +5262,13 @@
       "sha512": "sha512-Gdg+cirn19y3GaXHdmbka9zjyP8mKPgp/ELWr00tujm2aJjQONa+DPkUWoYZltVT27BL/hlWLwki5TXFI6CQig==",
       "path": "microsoft.extensions.logging.abstractions/3.1.17",
       "hashPath": "microsoft.extensions.logging.abstractions.3.1.17.nupkg.sha512"
+    },
+    "Microsoft.Extensions.ObjectPool/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SErON45qh4ogDp6lr6UvVmFYW0FERihW+IQ+2JyFv1PUyWktcJytFaWH5zarufJvZwhci7Rf1IyGXr9pVEadTw==",
+      "path": "microsoft.extensions.objectpool/2.1.1",
+      "hashPath": "microsoft.extensions.objectpool.2.1.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/3.1.17": {
       "type": "package",
@@ -5068,6 +5325,13 @@
       "sha512": "sha512-cu1klZiuCwVYbXHs0QdnseuoRGG1/85VX9d1Sk0vbJlKp+HJUN/4pAS/fe2m9bTOYyIPdeCHeksMiVHgo1EfAA==",
       "path": "microsoft.identitymodel.tokens/5.5.0",
       "hashPath": "microsoft.identitymodel.tokens.5.5.0.nupkg.sha512"
+    },
+    "Microsoft.Net.Http.Headers/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lPNIphl8b2EuhOE9dMH6EZDmu7pS882O+HMi5BJNsigxHaWlBrYxZHFZgE18cyaPp6SSZcTkKkuzfjV/RRQKlA==",
+      "path": "microsoft.net.http.headers/2.1.1",
+      "hashPath": "microsoft.net.http.headers.2.1.1.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "type": "package",
@@ -5356,12 +5620,12 @@
       "path": "system.appcontext/4.3.0",
       "hashPath": "system.appcontext.4.3.0.nupkg.sha512"
     },
-    "System.Buffers/4.3.0": {
+    "System.Buffers/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ratu44uTIHgeBeI0dE8DWvmXVBSo4u7ozRZZHOMmK/JPpYyo0dAfgSiHlpiObMQ5lEtEyIXA40sKRYg5J6A8uQ==",
-      "path": "system.buffers/4.3.0",
-      "hashPath": "system.buffers.4.3.0.nupkg.sha512"
+      "sha512": "sha512-pL2ChpaRRWI/p4LXyy4RgeWlYF2sgfj/pnVMvBqwNFr5cXg7CXNnWZWxrOONLg8VGdFB8oB+EG2Qw4MLgTOe+A==",
+      "path": "system.buffers/4.5.0",
+      "hashPath": "system.buffers.4.5.0.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",
@@ -5509,6 +5773,13 @@
       "sha512": "sha512-kcQWWtGVC3MWMNXdMDWfrmIlFZZ2OdoeT6pSNVRtk9+Sa7jwdPiMlNwb0ZQcS7NRlT92pCfmjRtkSWUW3RAKwg==",
       "path": "system.diagnostics.performancecounter/5.0.0",
       "hashPath": "system.diagnostics.performancecounter.5.0.0.nupkg.sha512"
+    },
+    "System.Diagnostics.StackTrace/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BiHg0vgtd35/DM9jvtaC1eKRpWZxr0gcQd643ABG7GnvSlf5pOkY2uyd42mMOJoOmKvnpNj0F4tuoS1pacTwYw==",
+      "path": "system.diagnostics.stacktrace/4.3.0",
+      "hashPath": "system.diagnostics.stacktrace.4.3.0.nupkg.sha512"
     },
     "System.Diagnostics.Tools/4.3.0": {
       "type": "package",
@@ -6120,7 +6391,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Hosting.Abstractions/3.1.0.0": {
+    "Microsoft.AspNetCore.Hosting.Abstractions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6130,7 +6401,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Hosting.Server.Abstractions/3.1.0.0": {
+    "Microsoft.AspNetCore.Hosting.Server.Abstractions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6140,7 +6411,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Http.Abstractions/3.1.0.0": {
+    "Microsoft.AspNetCore.Http.Abstractions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6155,17 +6426,17 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Http/3.1.0.0": {
+    "Microsoft.AspNetCore.Http.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Http.Extensions/3.1.0.0": {
+    "Microsoft.AspNetCore.Http.Extensions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Http.Features/3.1.0.0": {
+    "Microsoft.AspNetCore.Http.Features.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6370,7 +6641,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.WebUtilities/3.1.0.0": {
+    "Microsoft.AspNetCore.WebUtilities.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6445,7 +6716,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Hosting.Abstractions/3.1.0.0": {
+    "Microsoft.Extensions.Hosting.Abstractions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6455,7 +6726,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Http/3.1.0.0": {
+    "Microsoft.Extensions.Http.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6500,7 +6771,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.ObjectPool/3.1.0.0": {
+    "Microsoft.Extensions.ObjectPool.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6525,7 +6796,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Net.Http.Headers/3.1.0.0": {
+    "Microsoft.Net.Http.Headers.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6675,7 +6946,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Diagnostics.StackTrace/4.1.2.0": {
+    "System.Diagnostics.StackTrace.Reference/4.1.2.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

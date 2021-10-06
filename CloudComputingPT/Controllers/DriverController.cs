@@ -17,7 +17,7 @@ namespace CloudComputingPT.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private IPubSubAccess _pubSubAccess;
 
-        string bucketName = "cloudcomputing_bucket2";
+        string bucketName = "bucket-cloud";
         public DriverController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager, IPubSubAccess pubSubAccess)
         {
             _applicationDBContext = applicationDBContext;
@@ -77,34 +77,34 @@ namespace CloudComputingPT.Controllers
             }
         }
 
-        public async Task<ActionResult> ReadEmail()
-        {
+        //public async Task<ActionResult> ReadEmail()
+        //{
 
-            var result = await _pubSubAccess.ReadEmail();
+        //    var result = await _pubSubAccess.ReadEmail();
 
-            if (result != null)
-            {
-                string returnedResult = $"To: {result.MM.To},Body: {result.MM.Body}, AckId: {result.AckId}";
-                //the above line can be replaced with sending out the actual email using some smtp server or mail gun api
-                AcknowledgeEmails(result.AckId);
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                return Content("no emails read");
-            }
-        }
+        //    if (result != null)
+        //    {
+        //        string returnedResult = $"To: {result.MM.To},Body: {result.MM.Body}, AckId: {result.AckId}";
+        //        //the above line can be replaced with sending out the actual email using some smtp server or mail gun api
+        //        AcknowledgeEmails(result.AckId);
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    else
+        //    {
+        //        return Content("no emails read");
+        //    }
+        //}
 
-        public ActionResult AcknowledgeMessage(string ackId)
-        {
-            _pubSubAccess.AcknowledgeMessage(ackId);
+        //public ActionResult AcknowledgeMessage(string ackId)
+        //{
+        //    _pubSubAccess.AcknowledgeMessage(ackId);
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
-        public void AcknowledgeEmails(string ackId)
-        {
-            AcknowledgeMessage(ackId);
-        }
+        //public void AcknowledgeEmails(string ackId)
+        //{
+        //    AcknowledgeMessage(ackId);
+        //}
     }
 }

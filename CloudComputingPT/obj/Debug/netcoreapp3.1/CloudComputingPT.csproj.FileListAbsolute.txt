@@ -498,3 +498,10 @@ C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\Clo
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.dll
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.pdb
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.genruntimeconfig.cache
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.csproj.AssemblyReference.cache
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\cloudcomputing2558-ce9a289f4b14.json
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Diagnostics.AspNetCore.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Diagnostics.Common.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Logging.Type.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Logging.V2.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Trace.V1.dll

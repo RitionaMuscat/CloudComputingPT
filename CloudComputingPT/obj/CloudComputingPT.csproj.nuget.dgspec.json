@@ -40,6 +40,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Google.Cloud.Diagnostics.AspNetCore": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Google.Cloud.Logging.V2": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "Google.Cloud.PubSub.V1": {
               "target": "Package",
               "version": "[2.6.0, )"
