@@ -1,4 +1,43 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+var map = L.map('mapid').setView([35.9375, 14.3754], 13);
+var map2 = L.map('mapid2').setView([35.9375, 14.3754], 13);
 
-// Write your JavaScript code.
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map2);
+
+var geocodeService = L.esri.Geocoding.geocodeService({
+    apikey: "api key" // replace with your api key - https://developers.arcgis.com
+});
+
+
+map.on('click', function (e) {
+    geocodeService.reverse().latlng(e.latlng).run(function (error, result) {
+        if (error) {
+            return;
+        }
+
+        L.marker(result.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
+        document.getElementById("residingAdress").value = result.address.Match_addr;
+       
+    });
+
+});
+
+
+map2.on('click', function (e) {
+    geocodeService.reverse().latlng(e.latlng).run(function (error, result) {
+        if (error) {
+            return;
+        }
+
+        L.marker(result.latlng).addTo(map2).bindPopup(result.address.Match_addr).openPopup();
+        document.getElementById("destinationAddress").value = result.address.Match_addr;
+
+    });
+
+});
