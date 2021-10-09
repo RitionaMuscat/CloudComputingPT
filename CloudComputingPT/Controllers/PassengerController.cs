@@ -140,6 +140,7 @@ namespace CloudComputingPT.Controllers
             try
             {
                 var email = _userManager.GetUserName(User);
+               
                 var bookingDetails = (from a in _applicationDBContext.BookingDetails
                                       where a.Id.Equals(id)
                                       select new
@@ -150,9 +151,11 @@ namespace CloudComputingPT.Controllers
                                           a.luxury,
                                           a.isBookingConfirmed,
                                           a.economy,
-                                          a.business
+                                          a.business,
+                                          a.passengerId
 
                                       }).ToList();
+
                MyMailMessage mm = new MyMailMessage();
                 MyMailMessage _mm = new MyMailMessage();
                 mm.To = email;
@@ -167,19 +170,11 @@ namespace CloudComputingPT.Controllers
                         mm.Body = mm.Body + $"\n Service Type: Economy \n Booking Confirmed: Yes";
                     else if (item.business && item.isBookingConfirmed)
                         mm.Body = mm.Body + $"\n Service Type: Business \n Booking Confirmed: Yes";
+                    var _email = _userManager.FindByIdAsync(item.passengerId.ToString());
+                    mm.To = _email.Result.Email;
                 }
                 await _pubSubAccess.PublishEmailAsync(mm);
 
-                //_log.Log("Pushing a mail into a queue");
-
-                //var d = DateTime.Now.ToShortTimeString();
-                //MyMailMessage mm = new MyMailMessage
-                //{
-                //    Body = "This is a test body for pub sub " + d,
-                //    To = "ritiona.muscat13@gmail.com"
-                //};
-
-                //await _pubSubAccess.PublishEmailAsync(mm);
             }
             catch (Exception ex )
             {
