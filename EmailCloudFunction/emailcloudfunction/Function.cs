@@ -78,12 +78,12 @@ RestClient client = new RestClient ();
                 RestClient client = new RestClient();
                 client.BaseUrl = new Uri("https://api.mailgun.net/v3");
                 client.Authenticator =
-                    new HttpBasicAuthenticator("api",
-                                                "da1f8f04d4c041575309330398eb339b-dbdfb8ff-157f6229");
+                    new HttpBasicAuthenticator("api", "51bab073f854e952e266449506a4ed8f-443ec20e-5c6a091a");
+                                          
                 RestRequest request = new RestRequest();
-                request.AddParameter("domain", "https://api.mailgun.net/v3/sandboxf99c41093c6f4d7eb96dc8b82b260273.mailgun.org", ParameterType.UrlSegment);
+                request.AddParameter("domain","sandbox3eef3db2a68c4900ae36185af3ce3640.mailgun.org", ParameterType.UrlSegment);
                 request.Resource = "{domain}/messages";
-                request.AddParameter("from", "schooldemo21@gmail.com");
+                request.AddParameter("from", "ritiona.muscat13@gmail.com");
                 request.AddParameter("to", to);
 
                 request.AddParameter("subject", "Receipt of service");

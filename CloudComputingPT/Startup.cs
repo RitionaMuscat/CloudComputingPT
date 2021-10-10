@@ -2,6 +2,7 @@ using CloudComputingPT.Data;
 using CloudComputingPT.DataAccess.Interfaces;
 using CloudComputingPT.DataAccess.Repositories;
 using Google.Cloud.Diagnostics.AspNetCore;
+using Google.Cloud.SecretManager.V1;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 
 namespace CloudComputingPT
 {
@@ -40,10 +42,20 @@ namespace CloudComputingPT
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            SecretManagerServiceClient client = SecretManagerServiceClient.Create();
+
+            SecretVersionName secretVersionName = new SecretVersionName(projectId, "homeassignmentdemo", "2");
+
+            AccessSecretVersionResponse result = client.AccessSecretVersion(secretVersionName);
+
+            string str = result.Payload.Data.ToStringUtf8();
+            dynamic myPass = JsonConvert.DeserializeObject(str);
+            string clientSecret = myPass.web.client_secret;
+
             services.AddAuthentication().AddGoogle(options =>
             {
                 options.ClientId = "98773056871-6s16041blvn1jp2qdkpoe8oal18uhslf.apps.googleusercontent.com";// "310025673018-5pip0bf5cimb6q8r71bgdaloasrqi4bn.apps.googleusercontent.com";
-                options.ClientSecret = "rGv6G47DHsRO-gO322Ey59Nm";// "B-ACf9kCusUP00nkk-cA2eRG";
+                options.ClientSecret = clientSecret;
             });
 
             services.AddScoped<IPubSubAccess, PubSubAccess>();

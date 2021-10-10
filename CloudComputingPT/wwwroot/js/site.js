@@ -1,4 +1,6 @@
 ﻿
+
+
 var map = L.map('mapid').setView([35.9375, 14.3754], 13);
 var map2 = L.map('mapid2').setView([35.9375, 14.3754], 13);
 
@@ -11,7 +13,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map2);
 
 var geocodeService = L.esri.Geocoding.geocodeService({
-    apikey: "api key" // replace with your api key - https://developers.arcgis.com
+    apikey: "AAPK042faa12737b42b0b4286505141f9cc1wOzDPSo_t3pApIyiQu_1ZWwol0MAw3EZRtKU5oyF72MB0HLt6MTYHGdCYgUFFRlo" // replace with your api key - https://developers.arcgis.com
 });
 
 

@@ -16,13 +16,14 @@ namespace CloudComputingPT.Controllers
         private ApplicationDbContext _applicationDBContext;
         private readonly UserManager<IdentityUser> _userManager;
         private IPubSubAccess _pubSubAccess;
-
+        private ILogAccess _logAccess;
         string bucketName = "bucket-cloud";
-        public DriverController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager, IPubSubAccess pubSubAccess)
+        public DriverController(ApplicationDbContext applicationDBContext, UserManager<IdentityUser> userManager, IPubSubAccess pubSubAccess, ILogAccess logAccess)
         {
             _applicationDBContext = applicationDBContext;
             _userManager = userManager;
             _pubSubAccess = pubSubAccess;
+            _logAccess = logAccess;
         }
         // GET: DriverController
         public ActionResult Index()
@@ -30,7 +31,7 @@ namespace CloudComputingPT.Controllers
             CreateDriverService driverService = new CreateDriverService(_applicationDBContext);
             var gStorage = StorageClient.Create();
             var getStorageObj = gStorage.ListObjects(bucketName);
-
+            _logAccess.Log("Showing Driver Services");
             return View(driverService.driver_service());
         }
 
@@ -67,44 +68,17 @@ namespace CloudComputingPT.Controllers
 
                 _applicationDBContext.DriverServices.Add(driverService);
                 _applicationDBContext.SaveChanges();
-
+                _logAccess.Log("Added new Service");
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message.ToString());
+                _logAccess.Log("Exception: "+ ex.Message);
                 return View();
             }
         }
 
-        //public async Task<ActionResult> ReadEmail()
-        //{
 
-        //    var result = await _pubSubAccess.ReadEmail();
-
-        //    if (result != null)
-        //    {
-        //        string returnedResult = $"To: {result.MM.To},Body: {result.MM.Body}, AckId: {result.AckId}";
-        //        //the above line can be replaced with sending out the actual email using some smtp server or mail gun api
-        //        AcknowledgeEmails(result.AckId);
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    else
-        //    {
-        //        return Content("no emails read");
-        //    }
-        //}
-
-        //public ActionResult AcknowledgeMessage(string ackId)
-        //{
-        //    _pubSubAccess.AcknowledgeMessage(ackId);
-
-        //    return RedirectToAction("Index");
-        //}
-
-        //public void AcknowledgeEmails(string ackId)
-        //{
-        //    AcknowledgeMessage(ackId);
-        //}
     }
 }

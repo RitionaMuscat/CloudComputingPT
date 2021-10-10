@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mOnr+epnxolzcrcMDV0jD+nLP2Q2ex1Oyuz7c1VW4B6kHE4OKLQ3D8IsYXUyDl/Amsu/2Hwz7O2RGC0g3pYZiQ==",
+  "dgSpecHash": "8IzsrMk8rr60iVpk6dpXosRNLaTLCC0t9p9PKC5WY0YKO8zX4MoeOaPNV17CcNJCBi7OvncZMNtWWH1lnQkJWQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ritio\\Desktop\\Mcast Degree\\Programming For the Cloud\\AssignmentHome\\CloudComputingPT\\CloudComputingPT\\CloudComputingPT.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\ritio\\.nuget\\packages\\google.cloud.logging.type\\3.3.0\\google.cloud.logging.type.3.3.0.nupkg.sha512",
     "C:\\Users\\ritio\\.nuget\\packages\\google.cloud.logging.v2\\3.4.0\\google.cloud.logging.v2.3.4.0.nupkg.sha512",
     "C:\\Users\\ritio\\.nuget\\packages\\google.cloud.pubsub.v1\\2.6.0\\google.cloud.pubsub.v1.2.6.0.nupkg.sha512",
+    "C:\\Users\\ritio\\.nuget\\packages\\google.cloud.secretmanager.v1\\1.7.0\\google.cloud.secretmanager.v1.1.7.0.nupkg.sha512",
     "C:\\Users\\ritio\\.nuget\\packages\\google.cloud.storage.v1\\3.5.0\\google.cloud.storage.v1.3.5.0.nupkg.sha512",
     "C:\\Users\\ritio\\.nuget\\packages\\google.cloud.trace.v1\\2.1.0\\google.cloud.trace.v1.2.1.0.nupkg.sha512",
     "C:\\Users\\ritio\\.nuget\\packages\\google.protobuf\\3.15.8\\google.protobuf.3.15.8.nupkg.sha512",
