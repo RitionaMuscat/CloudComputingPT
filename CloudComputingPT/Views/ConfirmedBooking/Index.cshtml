@@ -65,7 +65,7 @@
                         @Html.DisplayFor(modelItem => item.business)
                     </td>
                     <td>
-                        <a asp-action="ReadEmail">Acknowledge Service</a>
+                        <a asp-controller="Passenger" asp-action="Edit"  asp-route-id="@item.Id">Acknowledge Service</a>
                     </td>
                 </tr>
             }

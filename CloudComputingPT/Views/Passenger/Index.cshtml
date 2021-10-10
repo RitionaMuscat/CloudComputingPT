@@ -34,46 +34,56 @@
                 <th>
                     Business
                 </th>
-
+                <th>
+                    Service Acknowledged
+                </th>
+                <th>
+                    Driver Email
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.passengerId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.residingAdress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.destinationAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.isBookingConfirmed)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.luxury)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.economy)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.business)
-                    </td>
-
-                    <td>
-                        @if (item.isBookingConfirmed)
-                        {
-                            <a asp-action="SendEmail" asp-route-id="@item.Id">Send Confirmation</a>
-                        }
-                        | <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passengerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.residingAdress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.destinationAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isBookingConfirmed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.luxury)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.economy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.business)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcknowledgedService)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DriverDetails)
+                </td>
+                <td>
+                    @if (item.isBookingConfirmed)
+                    {
+                        <a asp-action="SendEmail" asp-route-id="@item.Id">Send Confirmation</a>
+                    }
+                    | <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

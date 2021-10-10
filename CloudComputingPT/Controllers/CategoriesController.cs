@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CloudComputingPT.Controllers
@@ -28,14 +29,44 @@ namespace CloudComputingPT.Controllers
         {
             var a = (from b in _applicationDBContext.Categories
                      select b).ToList();
-            return View(a);
+            var value = new Categories();
+            List<Categories> catList = new List<Categories>();
+            using (ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost:6379,allowAdmin=true"))
+            {
+                StackExchange.Redis.IDatabase db = redis.GetDatabase();
+
+                var keys = redis.GetServer("localhost", 6379).Keys();
+
+                string[] keysArr = keys.Select(key => (string)key).ToArray();
+                if (keysArr.Length != 0)
+                {
+                    foreach (string item in keysArr)
+                    {
+                        foreach (var item1 in a)
+                        {
+                            var values = JsonConvert.DeserializeObject<Categories>(_cacheAccess.FetchData(item));
+                            if (values.Id == item1.Id && values.flatPrice == item1.flatPrice && values.categories == item1.categories)
+                            {
+                                value = values;
+                                catList.Add(values);
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+                    return View(catList);
+                }
+                else
+                {
+                    return View(a);
+                }
+
+            }
+
         }
 
-        // GET: CategoriesController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: CategoriesController/Create
         public ActionResult Create()
@@ -52,9 +83,13 @@ namespace CloudComputingPT.Controllers
             {
                 if (details.categories == "Luxury" || details.categories == "Economy" || details.categories == "Business")
                 {
+
+                    _applicationDBContext.Categories.Add(details);
+                    _applicationDBContext.SaveChanges();
+
                     _applicationDBContext.PricesDictionary.Add(new PricesDictionary()
                     {
-                        Id = Guid.NewGuid().ToString(),
+                        Id = details.Id.ToString(),
                         Value = JsonConvert.SerializeObject(details)
                     });
 
@@ -62,13 +97,10 @@ namespace CloudComputingPT.Controllers
 
                     _cacheAccess.SaveData(new PricesDictionary()
                     {
-                        Id = Guid.NewGuid().ToString(),
+                        Id = details.Id.ToString(),// Guid.NewGuid().ToString(),
                         Value = JsonConvert.SerializeObject(details)
 
                     });
-
-                    _applicationDBContext.Categories.Add(details);
-                    _applicationDBContext.SaveChanges();
 
                 }
                 else
@@ -111,9 +143,7 @@ namespace CloudComputingPT.Controllers
                         else
                             continue;
                     }
-
                 }
-
             }
 
             categories_to_edit.categories = value.categories;

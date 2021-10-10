@@ -16,5 +16,7 @@ namespace CloudComputingPT.Models
         public bool luxury { get; set; }
         public bool economy { get; set; }
         public bool business { get; set; }
+        public bool AcknowledgedService { get; set; }
+        public string DriverDetails { get; set; }
     }
 }

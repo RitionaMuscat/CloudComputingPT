@@ -23,6 +23,10 @@ namespace CloudComputingPT
             Configuration = configuration;
             _host = host;
             projectId = configuration.GetSection("ProjectId").Value;
+            string prefixAbsolutePath = _host.ContentRootPath;
+            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS",
+                prefixAbsolutePath + "/cloudcomputing2558-ce9a289f4b14.json"
+                );
         }
         public IConfiguration Configuration { get; }
 

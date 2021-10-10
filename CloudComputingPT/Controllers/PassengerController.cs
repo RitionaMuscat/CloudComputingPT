@@ -29,8 +29,9 @@ namespace CloudComputingPT.Controllers
         public ActionResult Index()
         {
             CreateBookingDetails bookingdetails = new CreateBookingDetails(_applicationDBContext);
+            var current_User = _userManager.GetUserId(User);
             _logAccess.Log("Getting all Bookings");
-            return View(bookingdetails.book_details());
+            return View(bookingdetails.book_details(new Guid(current_User)));
 
         }
 
@@ -51,30 +52,39 @@ namespace CloudComputingPT.Controllers
                 {
                     var current_User = _userManager.GetUserId(User);
                     details.passengerId = new Guid(current_User);
-                    if (details.luxury && details.economy && !details.business)
+                    if (details.isBookingConfirmed)
                     {
-                        ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
-                        _logAccess.Log("Cannot Choose Multiple Categories");
-                    }
-                    else if (details.luxury && !details.economy && details.business)
-                    {
-                        ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
-                        _logAccess.Log("Cannot Choose Multiple Categories");
-                    }
-                    else if (!details.luxury && details.economy && details.business)
-                    {
-                        ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
-                        _logAccess.Log("Cannot Choose Multiple Categories");
-                    }
-                    else if (details.luxury && details.economy && !details.business)
-                    {
-                        ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
-                        _logAccess.Log("Cannot Choose Multiple Categories");
-                    }
-                    else if (!details.luxury && !details.economy && !details.business)
-                    {
-                        ModelState.AddModelError(string.Empty, "Choose 1 Category");
-                        _logAccess.Log("Choose 1 Category");
+                        if (details.luxury && details.economy && !details.business)
+                        {
+                            ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
+                            _logAccess.Log("Cannot Choose Multiple Categories");
+                        }
+                        else if (details.luxury && !details.economy && details.business)
+                        {
+                            ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
+                            _logAccess.Log("Cannot Choose Multiple Categories");
+                        }
+                        else if (!details.luxury && details.economy && details.business)
+                        {
+                            ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
+                            _logAccess.Log("Cannot Choose Multiple Categories");
+                        }
+                        else if (details.luxury && details.economy && !details.business)
+                        {
+                            ModelState.AddModelError(string.Empty, "Only One Category Can Be Chosen");
+                            _logAccess.Log("Cannot Choose Multiple Categories");
+                        }
+                        else if (!details.luxury && !details.economy && !details.business)
+                        {
+                            ModelState.AddModelError(string.Empty, "Choose 1 Category");
+                            _logAccess.Log("Choose 1 Category");
+                        }
+                        else
+                        {
+                            _applicationDBContext.BookingDetails.Add(details);
+                            _applicationDBContext.SaveChanges();
+                            _logAccess.Log("Saved Bookings");
+                        }
                     }
                     else
                     {
@@ -100,7 +110,7 @@ namespace CloudComputingPT.Controllers
             var getPassengerBooking = (from b in _applicationDBContext.BookingDetails
                                        where b.Id.Equals(id)
                                        select b).ToList();
-            if (User.IsInRole("Passenger"))
+            if (User.IsInRole("Passenger") || User.IsInRole("Driver"))
             {
                 foreach (var item in getPassengerBooking)
                 {
@@ -138,7 +148,14 @@ namespace CloudComputingPT.Controllers
                 if (User.Identity.IsAuthenticated)
                 {
                     var current_User = _userManager.GetUserId(User);
+                    var email = _userManager.FindByIdAsync(current_User).Result.Email;
                     bookingDetails.passengerId = new Guid(current_User);
+                    if (User.IsInRole("Driver"))
+                    {
+                        bookingDetails.AcknowledgedService = true;
+                        bookingDetails.DriverDetails = email;
+                        ReadEmail();
+                    }
                     _applicationDBContext.BookingDetails.Update(bookingDetails);
                     _applicationDBContext.SaveChanges();
                     _logAccess.Log("Updated Records");
@@ -175,8 +192,6 @@ namespace CloudComputingPT.Controllers
                                       }).ToList();
 
                 MyMailMessage mm = new MyMailMessage();
-                //       MyMailMessage _mm = new MyMailMessage();
-
 
                 foreach (var item in bookingDetails)
                 {
@@ -200,6 +215,37 @@ namespace CloudComputingPT.Controllers
                 Console.Write("EXCEPTION: ", ex.Message);
             }
             return RedirectToAction("Index");
+        }
+        public async Task<ActionResult> ReadEmail()
+        {
+
+            var result = await _pubSubAccess.ReadEmail();
+
+            if (result != null)
+            {
+                string returnedResult = $"To: {result.MM.To},Body: {result.MM.Body}, AckId: {result.AckId}";
+                //the above line can be replaced with sending out the actual email using some smtp server or mail gun api
+                AcknowledgeEmails(result.AckId);
+                _logAccess.Log("Reading Email");
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                _logAccess.Log("No emails read");
+                return Content("no emails read");
+            }
+        }
+
+        public ActionResult AcknowledgeMessage(string ackId)
+        {
+            _pubSubAccess.AcknowledgeMessage(ackId);
+            _logAccess.Log("Acknowledging email");
+            return RedirectToAction("Index");
+        }
+
+        public void AcknowledgeEmails(string ackId)
+        {
+            AcknowledgeMessage(ackId);
         }
     }
 }

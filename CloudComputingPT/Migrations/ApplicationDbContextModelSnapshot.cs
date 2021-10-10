@@ -26,6 +26,12 @@ namespace CloudComputingPT.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
 
+                    b.Property<bool>("AcknowledgedService")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("DriverDetails")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("business")
                         .HasColumnType("bit");
 

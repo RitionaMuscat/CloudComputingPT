@@ -1,4 +1,5 @@
 ﻿using CloudComputingPT.Data;
+using System;
 using System.Linq;
 
 namespace CloudComputingPT.Models
@@ -11,9 +12,10 @@ namespace CloudComputingPT.Models
             _applicationDBContext = applicationDBContext;
         }
         public IQueryable<BookingDetails> _bookingDetails { get; set; }
-        public IQueryable<BookingDetails> book_details()
+        public IQueryable<BookingDetails> book_details(Guid UserId)
         {
             var bookingDetails = from a in _applicationDBContext.BookingDetails
+                                 where a.passengerId.Equals(UserId)
                                  select a;
 
             _bookingDetails = bookingDetails;
@@ -24,6 +26,16 @@ namespace CloudComputingPT.Models
         {
             var getAvailableBookings = from b in _applicationDBContext.BookingDetails
                                        where b.isBookingConfirmed == true
+                                       select b;
+
+            _bookingDetails = getAvailableBookings;
+            return _bookingDetails;
+        }
+
+        public IQueryable<BookingDetails> GetBookingDetailsById(Guid id)
+        {
+            var getAvailableBookings = from b in _applicationDBContext.BookingDetails
+                                       where b.isBookingConfirmed == true && b.Id.Equals(id)
                                        select b;
 
             _bookingDetails = getAvailableBookings;

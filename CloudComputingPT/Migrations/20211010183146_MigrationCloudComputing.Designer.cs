@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CloudComputingPT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211003135833_MigrationCloudComputing")]
+    [Migration("20211010183146_MigrationCloudComputing")]
     partial class MigrationCloudComputing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,12 @@ namespace CloudComputingPT.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
+
+                    b.Property<bool>("AcknowledgedService")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("DriverDetails")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("business")
                         .HasColumnType("bit");
