@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYVKphx/avkmLb0doPQkJaAAAAAACAAAAAAAQZgAAAAEAACAAAADvJoASDXY/Oz/OHwQLYpaqR8Au8OB0CWmCRLNN/X9+LAAAAAAOgAAAAAIAACAAAACa8DfcUW7F7hiBdNH09/wZ4VSmgHk4D6AORAgbj3IDeSAAAAA/GdCDemijTn7h+QgZRoCv6G4aeBwH2cNvEqlIZsdbRUAAAACi9Qom4um8kRt5LACxx7+20kHgSYp7sWLvaqWarPJ9n0y30/KgGqebF3b+gbJcyhBdzfTn2Qd5CxQEpw2YkI4P</EncryptedPassword>
+    <History>True|2021-10-14T18:29:01.7584227Z;False|2021-10-14T20:20:56.7004148+02:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=LAPTOP-3CDJD5H2%3bDatabase=aspnet_CloudComputingPT%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

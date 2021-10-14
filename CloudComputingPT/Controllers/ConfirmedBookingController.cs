@@ -28,7 +28,7 @@ namespace CloudComputingPT.Controllers
         {
             CreateBookingDetails createBookingDetails = new CreateBookingDetails(_applicationDBContext);
 
-            return View(createBookingDetails.GetBookingDetails());
+            return View(createBookingDetails.GetConfirmedBookingDetails());
         }
 
 

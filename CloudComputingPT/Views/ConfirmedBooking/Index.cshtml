@@ -5,12 +5,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>AvailableServices</title>
+    <title>Available Services</title>
 </head>
 <body>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
     <table class="table">
         <thead>
             <tr>
@@ -35,39 +32,44 @@
                 <th>
                     Business
                 </th>
-
+                <th>
+                    Driver Email
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.passengerId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.residingAdress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.destinationAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.isBookingConfirmed)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.luxury)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.economy)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.business)
-                    </td>
-                    <td>
-                        <a asp-controller="Passenger" asp-action="Edit"  asp-route-id="@item.Id">Acknowledge Service</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passengerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.residingAdress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.destinationAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isBookingConfirmed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.luxury)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.economy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.business)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DriverDetails)
+                </td>
+                <td>
+                    <a asp-controller="Passenger" asp-action="Edit" asp-route-id="@item.Id">Acknowledge Service</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -13,5 +13,6 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_DbContextTypeFullName>CloudComputingPT.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <ShowAllFiles>true</ShowAllFiles>
+    <NameOfLastUsedPublishProfile>C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\Properties\PublishProfiles\IISProfile.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
