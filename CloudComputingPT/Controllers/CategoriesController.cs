@@ -45,7 +45,11 @@ namespace CloudComputingPT.Controllers
                         foreach (var item1 in a)
                         {
                             var values = JsonConvert.DeserializeObject<Categories>(_cacheAccess.FetchData(item));
-                            if (values.Id == item1.Id && values.flatPrice == item1.flatPrice && values.categories == item1.categories)
+                            if (values == null)
+                            {
+                                continue;
+                            }
+                            else if (values.Id == item1.Id && values.flatPrice == item1.flatPrice && values.categories == item1.categories)
                             {
                                 value = values;
                                 catList.Add(values);
