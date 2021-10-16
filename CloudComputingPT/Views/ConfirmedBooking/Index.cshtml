@@ -67,7 +67,10 @@
                     @Html.DisplayFor(modelItem => item.DriverDetails)
                 </td>
                 <td>
+                    @if (item.DriverDetails == null)
+                    {
                     <a asp-controller="Passenger" asp-action="Edit" asp-route-id="@item.Id">Acknowledge Service</a>
+                    }
                 </td>
             </tr>
             }

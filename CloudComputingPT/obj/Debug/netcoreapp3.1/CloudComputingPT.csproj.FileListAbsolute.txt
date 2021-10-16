@@ -1,6 +1,5 @@
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\cloudcomputing-325812-e64a8ffaa524.json
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\CloudComputingPT.StaticWebAssets.xml
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\CloudComputingPT.exe
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\CloudComputingPT.deps.json
@@ -499,9 +498,11 @@ C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\Clo
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.pdb
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.genruntimeconfig.cache
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\obj\Debug\netcoreapp3.1\CloudComputingPT.csproj.AssemblyReference.cache
-C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\cloudcomputing2558-ce9a289f4b14.json
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Diagnostics.AspNetCore.dll
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Diagnostics.Common.dll
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Logging.Type.dll
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Logging.V2.dll
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Trace.V1.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.SecretManager.V1.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\client_secret_98773056871-6s16041blvn1jp2qdkpoe8oal18uhslf.apps.googleusercontent.com.json
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\cloudcomputing2558-ce9a289f4b14.json

@@ -34,6 +34,7 @@
           "Google.Cloud.Diagnostics.AspNetCore": "4.2.0",
           "Google.Cloud.Logging.V2": "3.4.0",
           "Google.Cloud.PubSub.V1": "2.6.0",
+          "Google.Cloud.SecretManager.V1": "1.7.0",
           "Google.Cloud.Storage.V1": "3.5.0",
           "Microsoft.AspNetCore.Authentication.Google": "3.1.18",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.17",
@@ -609,6 +610,22 @@
         },
         "compile": {
           "lib/netstandard2.0/Google.Cloud.PubSub.V1.dll": {}
+        }
+      },
+      "Google.Cloud.SecretManager.V1/1.7.0": {
+        "dependencies": {
+          "Google.Api.Gax.Grpc.GrpcCore": "3.5.0",
+          "Google.Cloud.Iam.V1": "2.2.0",
+          "Grpc.Core": "2.38.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.SecretManager.V1.dll": {
+            "assemblyVersion": "1.7.0.0",
+            "fileVersion": "1.7.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.SecretManager.V1.dll": {}
         }
       },
       "Google.Cloud.Storage.V1/3.5.0": {
@@ -4856,6 +4873,13 @@
       "sha512": "sha512-EZ4RKPxEFFarv4VOJLlZSpJWtiWTES9N3/4sWPZzyMX25SK7kMptgrS80zCIPSs4xYtGoaKrnf0vPVzDP7XQZQ==",
       "path": "google.cloud.pubsub.v1/2.6.0",
       "hashPath": "google.cloud.pubsub.v1.2.6.0.nupkg.sha512"
+    },
+    "Google.Cloud.SecretManager.V1/1.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XS+zY7f5hQWarXFRMYhNdfmuaioVb1oLgPXWwmnL/vlKpuPI1Z/OiO5lwO8mufSgl0sZXjWz0NODqaPsqvJbbg==",
+      "path": "google.cloud.secretmanager.v1/1.7.0",
+      "hashPath": "google.cloud.secretmanager.v1.1.7.0.nupkg.sha512"
     },
     "Google.Cloud.Storage.V1/3.5.0": {
       "type": "package",

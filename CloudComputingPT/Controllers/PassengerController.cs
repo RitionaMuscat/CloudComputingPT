@@ -79,8 +79,15 @@ namespace CloudComputingPT.Controllers
                             ModelState.AddModelError(string.Empty, "Choose 1 Category");
                             _logAccess.Log("Choose 1 Category");
                         }
+                        
                         else
                         {
+                            if(!details.isBookingConfirmed)
+                            {
+                                details.business = false;
+                                details.luxury = false;
+                                details.economy = false;
+                            }
                             _applicationDBContext.BookingDetails.Add(details);
                             _applicationDBContext.SaveChanges();
                             _logAccess.Log("Saved Bookings");
@@ -225,15 +232,18 @@ namespace CloudComputingPT.Controllers
             {
                 string returnedResult = $"To: {result.MM.To},Body: {result.MM.Body}, AckId: {result.AckId}";
                 //the above line can be replaced with sending out the actual email using some smtp server or mail gun api
+               
                 AcknowledgeEmails(result.AckId);
                 _logAccess.Log("Reading Email");
-                return RedirectToAction(nameof(Index));
+                return Content(returnedResult);
+  
             }
             else
             {
                 _logAccess.Log("No emails read");
                 return Content("no emails read");
             }
+            return RedirectToAction(nameof(Index));
         }
 
         public ActionResult AcknowledgeMessage(string ackId)

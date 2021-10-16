@@ -25,7 +25,7 @@ namespace CloudComputingPT.Models
         public IQueryable<BookingDetails> GetConfirmedBookingDetails()
         {
             var getAvailableBookings = from b in _applicationDBContext.BookingDetails
-                                       where b.isBookingConfirmed == true && b.DriverDetails == null
+                                       where b.isBookingConfirmed == true
                                        select b;
 
             _bookingDetails = getAvailableBookings;

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CloudComputingPT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211010183146_MigrationCloudComputing")]
+    [Migration("20211016131937_MigrationCloudComputing")]
     partial class MigrationCloudComputing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
