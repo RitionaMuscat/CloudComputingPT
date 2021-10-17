@@ -19,7 +19,7 @@ namespace CloudComputingPT.DataAccess.Repositories
         }
         public void SaveData(PricesDictionary item)
         {
-            db.StringSet(item.Id, item.Value);
+            db.StringSet(item.Id.ToString(), item.Value);
         }
     }
 }

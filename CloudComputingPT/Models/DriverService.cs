@@ -10,8 +10,9 @@ namespace CloudComputingPT.Models
 {
     public class DriverService
     {
-        [Key]
-        public Guid Id { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[Key]
+        public int Id { get; set; }
         [ForeignKey("AspNetUsers")]
         public Guid driverId { get; set; }
         public bool luxury { get; set; }

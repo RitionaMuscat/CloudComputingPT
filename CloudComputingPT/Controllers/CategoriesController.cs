@@ -121,7 +121,7 @@ namespace CloudComputingPT.Controllers
         }
 
         // GET: CategoriesController/Edit/5
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(int id)
         {
             Categories categories_to_edit = new Categories();
             var CategoriesEdit = (from CategoriesToEdit in _applicationDBContext.Categories
@@ -159,7 +159,7 @@ namespace CloudComputingPT.Controllers
 
         // POST: CategoriesController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Categories category)
         {
             try

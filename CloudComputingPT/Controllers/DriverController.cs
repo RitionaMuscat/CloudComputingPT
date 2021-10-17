@@ -43,7 +43,7 @@ namespace CloudComputingPT.Controllers
 
         // POST: DriverController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(DriverService driverService, IFormFile file)
         {
             try

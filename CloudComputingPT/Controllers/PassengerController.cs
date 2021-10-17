@@ -43,7 +43,7 @@ namespace CloudComputingPT.Controllers
 
         // POST: PassengerController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(BookingDetails details)
         {
             try
@@ -110,7 +110,7 @@ namespace CloudComputingPT.Controllers
         }
 
         // GET: PassengerController/Edit/5
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(int id)
         {
 
             BookingDetails bookingDetailsToEdit = new BookingDetails();
@@ -128,7 +128,9 @@ namespace CloudComputingPT.Controllers
                     bookingDetailsToEdit.luxury = item.luxury;
                     bookingDetailsToEdit.residingAdress = item.residingAdress;
                     bookingDetailsToEdit.Id = item.Id;
-                    bookingDetailsToEdit.passengerId = item.passengerId;
+                 
+                        bookingDetailsToEdit.passengerId = item.passengerId;
+                 
                 }
                 _logAccess.Log("Successfully Loaded Data To Edit");
 
@@ -147,16 +149,20 @@ namespace CloudComputingPT.Controllers
         public ActionResult Edit(int id, BookingDetails bookingDetails)
         {
             try
-            {
-                var getPassengerBooking = (from b in _applicationDBContext.BookingDetails
-                                           where b.Id.Equals(id)
-                                           select b).ToList();
+            { 
+            //{
+            //    var getPassengerBooking = (from b in _applicationDBContext.BookingDetails
+            //                               where b.Id.Equals(id)
+            //                               select b).ToList();
 
                 if (User.Identity.IsAuthenticated)
                 {
                     var current_User = _userManager.GetUserId(User);
                     var email = _userManager.FindByIdAsync(current_User).Result.Email;
-                    bookingDetails.passengerId = new Guid(current_User);
+                    if (User.IsInRole("Passenger"))
+                    {
+                        bookingDetails.passengerId = new Guid(current_User);
+                    }
                     if (User.IsInRole("Driver"))
                     {
                         bookingDetails.AcknowledgedService = true;
@@ -177,7 +183,7 @@ namespace CloudComputingPT.Controllers
             }
         }
 
-        public async Task<IActionResult> SendEmail(Guid id)
+        public async Task<IActionResult> SendEmail(int id)
         {
             try
             {

@@ -6,8 +6,9 @@ namespace CloudComputingPT.Models
 {
     public class BookingDetails
     {
-        [Key]
-        public Guid Id { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[Key]
+        public int Id { get; set; }
         [ForeignKey("AspNetUsers")]
         public Guid passengerId { get; set; }
         public string residingAdress { get; set; }

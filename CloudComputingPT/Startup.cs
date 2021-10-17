@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-
+using Microsoft.AspNetCore.Http;
 namespace CloudComputingPT
 {
     public class Startup
@@ -25,7 +25,7 @@ namespace CloudComputingPT
             projectId = configuration.GetSection("ProjectId").Value;
             string prefixAbsolutePath = _host.ContentRootPath;
             System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS",
-                prefixAbsolutePath + "/cloudcomputing2558-ce9a289f4b14.json"
+                prefixAbsolutePath + "/wwwroot" + "/cloudcomputing2558-ce9a289f4b14.json"
                 );
         }
         public IConfiguration Configuration { get; }
@@ -33,18 +33,29 @@ namespace CloudComputingPT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //310025673018-5pip0bf5cimb6q8r71bgdaloasrqi4bn.apps.googleusercontent.com
-            //B-ACf9kCusUP00nkk-cA2eRG
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
+                options.OnAppendCookie = cookieContext =>
+                    CheckSameSite(cookieContext.Context, cookieContext.CookieOptions);
+                options.OnDeleteCookie = cookieContext =>
+                    CheckSameSite(cookieContext.Context, cookieContext.CookieOptions);
+            });
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
 
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultUI().AddDefaultTokenProviders();
-            services.AddControllersWithViews();
-            services.AddRazorPages();
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            //.AddEntityFrameworkStores<ApplicationDbContext>()
+            //.AddDefaultUI().AddDefaultTokenProviders();
+            //services.AddControllersWithViews();
+            //services.AddRazorPages();
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+         .AddDefaultUI()
+         .AddEntityFrameworkStores<ApplicationDbContext>()
+         .AddDefaultTokenProviders();
 
             SecretManagerServiceClient client = SecretManagerServiceClient.Create();
 
@@ -94,7 +105,7 @@ namespace CloudComputingPT
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -106,5 +117,19 @@ namespace CloudComputingPT
                 endpoints.MapRazorPages();
             });
         }
+        private void CheckSameSite(HttpContext httpContext, CookieOptions options)
+        {
+            if (options.SameSite == SameSiteMode.None)
+            {
+                var userAgent = httpContext.Request.Headers["User-Agent"].ToString();
+                // TODO: Use your User Agent library of choice here.
+
+                // For .NET Core < 3.1 set SameSite = (SameSiteMode)(-1)
+                options.SameSite = SameSiteMode.Unspecified;
+
+            }
+        }
+
     }
+
 }

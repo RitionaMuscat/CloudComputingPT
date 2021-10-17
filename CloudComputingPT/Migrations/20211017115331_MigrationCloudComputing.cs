@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CloudComputingPT.Migrations
 {
@@ -50,7 +51,7 @@ namespace CloudComputingPT.Migrations
                 name: "BookingDetails",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
+                    Id = table.Column<int>(nullable: false),
                     passengerId = table.Column<Guid>(nullable: false),
                     residingAdress = table.Column<string>(nullable: true),
                     destinationAddress = table.Column<string>(nullable: true),
@@ -70,7 +71,7 @@ namespace CloudComputingPT.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
+                    Id = table.Column<int>(nullable: false),
                     categories = table.Column<string>(nullable: true),
                     flatPrice = table.Column<double>(nullable: false)
                 },
@@ -83,7 +84,7 @@ namespace CloudComputingPT.Migrations
                 name: "DriverServices",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
+                    Id = table.Column<int>(nullable: false),
                     driverId = table.Column<Guid>(nullable: false),
                     luxury = table.Column<bool>(nullable: false),
                     economy = table.Column<bool>(nullable: false),
@@ -117,7 +118,7 @@ namespace CloudComputingPT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -138,7 +139,7 @@ namespace CloudComputingPT.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -227,8 +228,7 @@ namespace CloudComputingPT.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -254,8 +254,7 @@ namespace CloudComputingPT.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

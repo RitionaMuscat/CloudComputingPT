@@ -504,5 +504,8 @@ C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\Clo
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Logging.V2.dll
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.Trace.V1.dll
 C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Google.Cloud.SecretManager.V1.dll
-C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\client_secret_98773056871-6s16041blvn1jp2qdkpoe8oal18uhslf.apps.googleusercontent.com.json
-C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\cloudcomputing2558-ce9a289f4b14.json
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Npgsql.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\FluentMigrator.Abstractions.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\FluentMigrator.Extensions.Postgres.dll
+C:\Users\ritio\Desktop\Mcast Degree\Programming For the Cloud\AssignmentHome\CloudComputingPT\CloudComputingPT\bin\Debug\netcoreapp3.1\de-DE\FluentMigrator.Abstractions.resources.dll
